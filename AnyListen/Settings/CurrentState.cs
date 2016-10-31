@@ -1,0 +1,77 @@
+﻿using System;
+using System.IO;
+using System.Xml.Serialization;
+using AnyListen.MagicArrow.DockManager;
+using AnyListen.Music;
+using AnyListen.Music.MusicEqualizer;
+
+namespace AnyListen.Settings
+{
+    [Serializable]
+    public class CurrentState : SettingsBase
+    {
+        private const string Filename = "current.xml";
+
+        public float Volume { get; set; }
+
+        public long TrackPosition { get; set; }
+        public int LastPlaylistIndex { get; set; }
+        public int LastTrackIndex { get; set; }
+        public int SelectedPlaylist { get; set; }
+        public int SelectedTrack { get; set; }
+        public QueueManager Queue { get; set; }
+        public bool IsLoopEnabled { get; set; }
+        public bool IsShuffleEnabled { get; set; }
+        public EqualizerSettings EqualizerSettings { get; set; }
+        public DockingApplicationState ApplicationState { get; set; }
+        public int MainTabControlIndex { get; set; }
+
+        private bool _equalizerIsOpen;
+        public bool EqualizerIsOpen
+        {
+            get { return _equalizerIsOpen; }
+            set
+            {
+                SetProperty(value, ref _equalizerIsOpen);
+            }
+        }
+
+        public CurrentState()
+        {
+            SetStandardValues();
+        }
+
+        public override sealed void SetStandardValues()
+        {
+            LastPlaylistIndex = -10;
+            LastTrackIndex = -1;
+            TrackPosition = 0;
+            Volume = 1.0f;
+            SelectedPlaylist = 0;
+            SelectedTrack = -1;
+            IsLoopEnabled = false;
+            IsShuffleEnabled = false;
+            ApplicationState = null;
+            EqualizerSettings = new EqualizerSettings();
+            EqualizerSettings.CreateNew();
+            MainTabControlIndex = 0;
+        }
+
+        public static CurrentState Load(string programpath)
+        {
+            var fi = new FileInfo(Path.Combine(programpath, Filename));
+            if (!fi.Exists || string.IsNullOrWhiteSpace(File.ReadAllText(fi.FullName))) return new CurrentState();
+
+            using (var reader = new StreamReader(Path.Combine(programpath, Filename)))
+            {
+                var deserializer = new XmlSerializer(typeof(CurrentState));
+                return (CurrentState)deserializer.Deserialize(reader);
+            }
+        }
+
+        public override void Save(string programPath)
+        {
+            Save<CurrentState>(Path.Combine(programPath, Filename));
+        }
+    }
+}

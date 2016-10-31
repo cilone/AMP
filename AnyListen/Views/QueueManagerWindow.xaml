@@ -1,0 +1,59 @@
+﻿<controls:MetroWindow x:Class="AnyListen.Views.QueueManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:viewmodels="clr-namespace:AnyListen.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converter="clr-namespace:AnyListen.GUI.Converter"
+        mc:Ignorable="d"
+        Title="{StaticResource QueueManager}" SizeToContent="Height" Width="520" GlowBrush="{StaticResource AccentColorBrush}" ResizeMode="NoResize" d:DataContext="{d:DesignInstance viewmodels:QueueManagerViewModel,IsDesignTimeCreatable=True}" ShowInTaskbar="False">
+    <Window.Resources>
+        <converter:FalseOnNullValue x:Key="FalseOnNullValue"/>
+        <converter:TimespanToMinutesSeconds x:Key="TimespanToMinutesSeconds"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <ListView Margin="10" SelectionMode="Extended" ItemsSource="{Binding QueueManager.TrackPlaylists}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" x:Name="TracksListView">
+            <ListView.InputBindings>
+                <KeyBinding Key="PageUp" Command="{Binding MoveTracksUp}" CommandParameter="{Binding ElementName=TracksListView,Path=SelectedItems}"/>
+                <KeyBinding Key="PageDown" Command="{Binding MoveTracksDown}" CommandParameter="{Binding ElementName=TracksListView,Path=SelectedItems}"/>
+            </ListView.InputBindings>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{StaticResource Number}" Width="75" DisplayMemberBinding="{Binding Track.QueueId}"/>
+                    <GridViewColumn Header="{StaticResource Filename}" Width="200" DisplayMemberBinding="{Binding Track}"/>
+                    <GridViewColumn Header="{StaticResource Playlist}" Width="150" DisplayMemberBinding="{Binding Playlist.Name}"/>
+                    <GridViewColumn Header="{StaticResource Duration}" Width="75" DisplayMemberBinding="{Binding Track.Duration}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid Grid.Row="1" Margin="10,0,10,10">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{StaticResource TotalTime}"/>
+                    <TextBlock Text=": "/>
+                    <TextBlock Text="{Binding QueueManager.Duration,Converter={StaticResource TimespanToMinutesSeconds}}"/>
+                </StackPanel>
+                
+                <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                    <Button Content="{StaticResource RemoveSelectedFiles}" Margin="0,0,10,0" IsEnabled="{Binding ElementName=TracksListView,Path=SelectedItem,Converter={StaticResource FalseOnNullValue}}" Command="{Binding RemoveSelectedTracksFromQueue}" CommandParameter="{Binding ElementName=TracksListView,Path=SelectedItems}"/>
+                    <Button Content="{StaticResource ClearQueue}" Command="{Binding ClearQueue}" IsEnabled="{Binding QueueManager.HasTracks}"/>
+                    <Grid DockPanel.Dock="Right" Grid.IsSharedSizeScope="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="Buttons"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition SharedSizeGroup="Buttons"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="{StaticResource MoveUp}" Command="{Binding MoveTracksUp}" CommandParameter="{Binding ElementName=TracksListView,Path=SelectedItems}" IsEnabled="{Binding ElementName=TracksListView,Path=SelectedItem,Converter={StaticResource FalseOnNullValue}}"/>
+                        <Button Content="{StaticResource MoveDown}" Command="{Binding MoveTracksDown}" CommandParameter="{Binding ElementName=TracksListView,Path=SelectedItems}" Grid.Column="2" IsEnabled="{Binding ElementName=TracksListView,Path=SelectedItem,Converter={StaticResource FalseOnNullValue}}"/>
+                    </Grid>
+                </DockPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</controls:MetroWindow>

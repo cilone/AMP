@@ -1,0 +1,931 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C1DA3B1-DB8E-4F06-849D-CCF71FA1929F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnyListen</RootNamespace>
+    <AssemblyName>AnyListen</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Shelher\Desktop\AnyListen1.0.0\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <WebPage>publish.htm</WebPage>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\App\Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AnyListen.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>EBD5B15C6DACD580F2922A68D8D50B89AFE59598</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Hurricane_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CSCore, Version=1.1.5992.18249, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSCore.1.1.0\lib\net35-client\CSCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Exceptionless.Extras, Version=3.0.1319.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Exceptionless.Wpf.3.0.1319\lib\net45\Exceptionless.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="Exceptionless.Portable, Version=3.0.1319.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Exceptionless.Portable.3.0.1319\lib\portable-net40+sl50+win+wpa81+wp80\Exceptionless.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Exceptionless.Wpf, Version=3.0.1319.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Exceptionless.Wpf.3.0.1319\lib\net45\Exceptionless.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="GongSolutions.Wpf.DragDrop, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\gong-wpf-dragdrop.1.0.0\lib\net45\GongSolutions.Wpf.DragDrop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net45\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.3.0.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.2-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="taglib-sharp">
+      <HintPath>..\packages\taglib.2.1.0.0\lib\taglib-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="updateSystemDotNet.Controller">
+      <HintPath>..\Libraries\updateSystemDotNet.Controller.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFFolderBrowser, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WPFFolderBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFSoundVisualizationLib, Version=0.3.4442.43191, Culture=neutral, PublicKeyToken=eb44ed7102b4fcc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WPFSoundVisualizationLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.4.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.4\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AppCommunication\AppCommunicationManager.cs" />
+    <Compile Include="AppCommunication\AppCommunicationSettings.cs" />
+    <Compile Include="AppCommunication\Commander.cs" />
+    <Compile Include="AppCommunication\Commands\CommandBase.cs" />
+    <Compile Include="AppCommunication\Commands\FileTransferCommand.cs" />
+    <Compile Include="AppCommunication\Commands\MediaControlCommand.cs" />
+    <Compile Include="AppCommunication\Commands\PlaylistCommand.cs" />
+    <Compile Include="AppCommunication\Commands\Utilities.cs" />
+    <Compile Include="AppCommunication\CommunicationEventArgs\TCPConnectionChangedEventArgs.cs" />
+    <Compile Include="AppCommunication\ConnectionDeviceInfo.cs" />
+    <Compile Include="AppCommunication\StreamProvider.cs" />
+    <Compile Include="AppCommunication\TCPConnection.cs" />
+    <Compile Include="AppCommunication\TCPServer.cs" />
+    <Compile Include="AppMainWindow\MahAppsExtensions\Dialogs\AdvancedInputDialog.xaml.cs">
+      <DependentUpon>AdvancedInputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppMainWindow\MahAppsExtensions\Dialogs\EqualizerDialog.xaml.cs">
+      <DependentUpon>EqualizerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppMainWindow\Messages\ProgressDialog.cs" />
+    <Compile Include="AppMainWindow\Messages\WindowDialogService.cs" />
+    <Compile Include="Designer\Data\ThemeData\AppThemeData.cs" />
+    <Compile Include="Designer\Data\ThemeData\AccentColorData.cs" />
+    <Compile Include="Designer\Data\EditableThemePack.cs" />
+    <Compile Include="Designer\Data\IPreviewable.cs" />
+    <Compile Include="Designer\Data\ISaveable.cs" />
+    <Compile Include="Designer\Data\PreviewData.cs" />
+    <Compile Include="Designer\Data\ThemeBoolean.cs" />
+    <Compile Include="Designer\Data\ThemeData\DataThemeBase.cs" />
+    <Compile Include="Designer\Data\ThemeColor.cs" />
+    <Compile Include="Designer\Data\ThemePack.cs" />
+    <Compile Include="Designer\Data\ThemePack2.cs" />
+    <Compile Include="Designer\Data\IThemeSetting.cs" />
+    <Compile Include="Designer\Data\ThemePackConsts.cs" />
+    <Compile Include="Designer\DesignerViewModel.cs" />
+    <Compile Include="Designer\DesignerWindow.xaml.cs">
+      <DependentUpon>DesignerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\Pages\LivePreview.xaml.cs">
+      <DependentUpon>LivePreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\Pages\ThemeEditControl.xaml.cs">
+      <DependentUpon>ThemeEditControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\Pages\ThemePackPage.xaml.cs">
+      <DependentUpon>ThemePackPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\Pages\ThemePage.xaml.cs">
+      <DependentUpon>ThemePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ThemePackViewModel.cs" />
+    <Compile Include="DragDrop\DropTargetAdorners\DropTargetInsertionAdorner.cs" />
+    <Compile Include="DragDrop\PlaylistListDropHandler.cs" />
+    <Compile Include="DragDrop\TrackListDropHandler.cs" />
+    <Compile Include="GUI\Behaviors\FrameworkElementBehavior.cs" />
+    <Compile Include="GUI\Behaviors\ItemsControlAnimationBehavior.cs" />
+    <Compile Include="GUI\Controls\AnimatedStackPanel.cs" />
+    <Compile Include="GUI\Behaviors\AudioVisualisationBehavior.cs" />
+    <Compile Include="GUI\Behaviors\TransitioningContentControlBehavior.cs" />
+    <Compile Include="GUI\Controls\PlayPauseButton.xaml.cs">
+      <DependentUpon>PlayPauseButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Converter\IsMusicApiConverter.cs" />
+    <Compile Include="GUI\Extensions\ComboBoxItemTemplateChooser.cs" />
+    <Compile Include="GUI\Behaviors\ControlBehavior.cs" />
+    <Compile Include="GUI\Converter\CollapsedOnNullValue.cs" />
+    <Compile Include="GUI\Converter\InvertBooleanConverter.cs" />
+    <Compile Include="GUI\Converter\MillisecondsToStringConverter.cs" />
+    <Compile Include="GUI\Converter\PlaylistInfoConverter.cs" />
+    <Compile Include="GUI\Behaviors\ContentControlBehavior.cs" />
+    <Compile Include="GUI\Extensions\EnumerationExtension.cs" />
+    <Compile Include="GUI\Controls\SliderWhichMakesMoves.cs" />
+    <Compile Include="GUI\Controls\VolumeIcon.xaml.cs">
+      <DependentUpon>VolumeIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MagicArrow\WindowHider.cs" />
+    <Compile Include="Music\Download\AnyListenDownloader.cs" />
+    <Compile Include="Music\Download\DownloadSettings.cs" />
+    <Compile Include="Music\Download\ffmpeg.cs" />
+    <Compile Include="Music\Download\GroovesharkApi.cs" />
+    <Compile Include="Music\Lrc\LrcAnalyze.cs" />
+    <Compile Include="Music\Lrc\LrcLineItem.cs" />
+    <Compile Include="Music\Lrc\Lyric.cs" />
+    <Compile Include="Music\Lrc\MyLrcItem.cs" />
+    <Compile Include="Music\Playlist\CueSharp.cs" />
+    <Compile Include="Music\Playlist\ImportCueSheet.cs" />
+    <Compile Include="Music\Playlist\ImportM3uPlaylist.cs" />
+    <Compile Include="Music\Playlist\Playlists.cs" />
+    <Compile Include="Music\AudioEngine\SoundOutManager.cs" />
+    <Compile Include="Music\Proxy\HttpProxy.cs" />
+    <Compile Include="Music\Proxy\ProxyEntry.cs" />
+    <Compile Include="Music\Track\AnyListenTrack.cs" />
+    <Compile Include="Music\Track\LocalTrackFragment.cs" />
+    <Compile Include="Music\AudioEngine\CutSource.cs" />
+    <Compile Include="Music\Track\CustomStream.cs" />
+    <Compile Include="Music\Track\SongResult.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\BdMusic.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\KgMusic.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\KwMusic.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\TtMusic.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\TxMusic.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\WyMusicApi.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\AnyListenWebResult.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\CommonHelper.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\MusicService.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\XmMusic.cs" />
+    <Compile Include="Settings\Converter\GroupConverter.cs" />
+    <Compile Include="Settings\Converter\TransitionConverter.cs" />
+    <Compile Include="Settings\PasswordEntry.cs" />
+    <Compile Include="Settings\SaveLocationManager.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\AudioVisualisationBase.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\AudioVisualisationPluginHelper.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\RectangleVisualisation\AdvancedWindowAudioVisualisation.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\RectangleVisualisation\RectangleAudioVisualisation.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\RectangleVisualisation\SmartWindowAudioVisualisation.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\CustomAudioVisualisation.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\BarAudioVisualisation\AdvancedWindowAudioVisualisation.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\BarAudioVisualisation\BarAudioVisualisation.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\BarAudioVisualisation\SmartWindowAudioVisualisation.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\SpectrumPlayerWrapper.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\IAudioVisualisationContainer.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\SquareAudioVisualisation\AdvancedWindowAudioVisualisation.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\SquareAudioVisualisation\SquareAudioVisualisation.cs" />
+    <Compile Include="Settings\Themes\AudioVisualisation\SquareAudioVisualisation\SmartWindowAudioVisualisation.cs" />
+    <Compile Include="Settings\Themes\Background\CustomApplicationBackground.cs" />
+    <Compile Include="GUI\Converter\FalseOnNullValue.cs" />
+    <Compile Include="GUI\Converter\FormatLargeNumber.cs" />
+    <Compile Include="GUI\Converter\FormatTimespan.cs" />
+    <Compile Include="GUI\Converter\PlaceholderConverter.cs" />
+    <Compile Include="GUI\Converter\TimeSpanProgressConverter.cs" />
+    <Compile Include="GUI\Converter\StringArrayToStringConverter.cs" />
+    <Compile Include="GUI\Converter\TimespanToMinutesSeconds.cs" />
+    <Compile Include="GUI\Behaviors\GridViewSort.cs" />
+    <Compile Include="GUI\Controls\VectorMenuItem.cs" />
+    <Compile Include="GUI\Extensions\ListViewLayoutManager\ConverterGridViewColumn.cs" />
+    <Compile Include="GUI\Extensions\ListViewLayoutManager\FixedColumn.cs" />
+    <Compile Include="GUI\Extensions\ListViewLayoutManager\ImageGridViewColumn.cs" />
+    <Compile Include="GUI\Extensions\ListViewLayoutManager\LayoutColumn.cs" />
+    <Compile Include="GUI\Extensions\ListViewLayoutManager\ListViewLayoutManager.cs" />
+    <Compile Include="GUI\Extensions\ListViewLayoutManager\ProportionalColumn.cs" />
+    <Compile Include="GUI\Extensions\ListViewLayoutManager\RangeColumn.cs" />
+    <Compile Include="GUI\Behaviors\TaskbarItemInfoBehavior.cs" />
+    <Compile Include="GUI\Controls\TrackImagePreseter.xaml.cs">
+      <DependentUpon>TrackImagePreseter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Behaviors\TextBlockBehavior.cs" />
+    <Compile Include="GUI\Behaviors\VisibilityAnimation.cs" />
+    <Compile Include="MagicArrow\DockManager\DockingApplicationState.cs" />
+    <Compile Include="MagicArrow\DockManager\DockManager.cs" />
+    <Compile Include="MagicArrow\DockManager\DockRangeWindow.xaml.cs">
+      <DependentUpon>DockRangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Converter\RoundSizeConverter.cs" />
+    <Compile Include="GUI\Converter\NeverIfDateIsNull.cs" />
+    <Compile Include="MagicArrow\StrokeWindow.xaml.cs">
+      <DependentUpon>StrokeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Music\AsyncTrackLoader.cs" />
+    <Compile Include="Music\Data\AudioDevice.cs" />
+    <Compile Include="Music\Download\DownloadEntry.cs" />
+    <Compile Include="Music\Download\DownloadManager.cs" />
+    <Compile Include="Music\Download\DownloadProgress.cs" />
+    <Compile Include="Music\Playlist\FavoriteList.cs" />
+    <Compile Include="Music\Data\IRepresentable.cs" />
+    <Compile Include="Music\Data\SoundOutRepresenter.cs" />
+    <Compile Include="Music\MusicEqualizer\EqualizerBand.cs" />
+    <Compile Include="Music\Playlist\IPlaylist.cs" />
+    <Compile Include="Music\CustomEventArgs\EqualizerChangedEventArgs.cs" />
+    <Compile Include="Music\MusicEqualizer\EqualizerSettings.cs" />
+    <Compile Include="Music\CustomEventArgs\PlaybackStateChangedEventArgs.cs" />
+    <Compile Include="Music\CustomEventArgs\PositionChangedEventArgs.cs" />
+    <Compile Include="Music\CustomEventArgs\TrackImportProgressChanged.cs" />
+    <Compile Include="Music\MusicCover\APIs\Lastfm\artist.cs" />
+    <Compile Include="Music\MusicCover\APIs\Lastfm\LastfmAPI.cs" />
+    <Compile Include="Music\MusicCover\APIs\Lastfm\lfm.cs" />
+    <Compile Include="Music\MusicCover\MusicCoverManager.cs" />
+    <Compile Include="Music\MusicCover\APIs\Lastfm\track.cs" />
+    <Compile Include="Music\MusicManagerCommands.cs" />
+    <Compile Include="Music\Playlist\PlaylistBase.cs" />
+    <Compile Include="Music\QueueManager.cs" />
+    <Compile Include="Music\Data\TrackComparer.cs" />
+    <Compile Include="Music\Data\TrackPlaylistPair.cs" />
+    <Compile Include="Music\Result.cs" />
+    <Compile Include="Music\Track\IDownloadable.cs" />
+    <Compile Include="Music\Track\IMusicInformation.cs" />
+    <Compile Include="Music\Track\WebApi\IMusicApi.cs" />
+    <Compile Include="Music\Track\WebApi\IPlaylistResult.cs" />
+    <Compile Include="Music\Track\LocalTrack.cs" />
+    <Compile Include="Music\Track\PlayableBase.cs" />
+    <Compile Include="Music\Track\WebApi\LoadingTracksEventArgs.cs" />
+    <Compile Include="Music\Track\StreamableBase.cs" />
+    <Compile Include="Music\Track\WebApi\TrackSearcher.cs" />
+    <Compile Include="Music\Track\WebApi\WebTrackResultBase.cs" />
+    <Compile Include="Music\AudioEngine\VolumeFading.cs" />
+    <Compile Include="Notification\NotificationService.cs" />
+    <Compile Include="Notification\Views\NotificationRightBottomWindow.xaml.cs">
+      <DependentUpon>NotificationRightBottomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\Views\NotificationTopWindow.xaml.cs">
+      <DependentUpon>NotificationTopWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\WindowMessages\WindowMessanger.cs" />
+    <Compile Include="Music\API\Command.cs" />
+    <Compile Include="Music\API\CommandBase.cs" />
+    <Compile Include="Music\API\Commander.cs" />
+    <Compile Include="Music\API\CommandFunction.cs" />
+    <Compile Include="Music\API\CommandAction.cs" />
+    <Compile Include="Music\API\TcpConnection.cs" />
+    <Compile Include="Music\API\TcpServer.cs" />
+    <Compile Include="Settings\ConfigSettings.cs" />
+    <Compile Include="Settings\Converter\BitrateToIndexConverter.cs" />
+    <Compile Include="Settings\Converter\EnumToBooleanConverter.cs" />
+    <Compile Include="Settings\Converter\LatencyToIndexConverter.cs" />
+    <Compile Include="Settings\Converter\NotificationTypeConverter.cs" />
+    <Compile Include="Settings\Converter\QualityToIndexConverter.cs" />
+    <Compile Include="Settings\Converter\SampleRateToIndexConverter.cs" />
+    <Compile Include="Settings\CurrentState.cs" />
+    <Compile Include="Settings\LanguageInfo.cs" />
+    <Compile Include="Settings\PlaylistSettings.cs" />
+    <Compile Include="Settings\RegistryManager\RegistryContextMenuItem.cs" />
+    <Compile Include="Settings\RegistryManager\RegistryManager.cs" />
+    <Compile Include="Settings\RegistryManager\RegistryRegister.cs" />
+    <Compile Include="Settings\SensitiveInformation.cs" />
+    <Compile Include="Settings\SettingsBase.cs" />
+    <Compile Include="Settings\Themes\Background\IApplicationBackground.cs" />
+    <Compile Include="Settings\Themes\Visual\AppThemes\AppTheme.cs" />
+    <Compile Include="Settings\Themes\Visual\AppThemes\CustomAppTheme.cs" />
+    <Compile Include="Settings\Themes\ApplicationThemeManager.cs" />
+    <Compile Include="Settings\Themes\Visual\AccentColors\AccentColorBase.cs" />
+    <Compile Include="Settings\Themes\Visual\AccentColors\CustomAccentColor.cs" />
+    <Compile Include="Settings\Themes\Visual\AppThemes\AppThemeBase.cs" />
+    <Compile Include="Settings\Themes\Visual\AccentColors\AccentColor.cs" />
+    <Compile Include="Settings\Themes\Visual\ThemeBase.cs" />
+    <Compile Include="Settings\Themes\ApplicationDesign.cs" />
+    <Compile Include="Utilities\ActiveWindowHook.cs" />
+    <Compile Include="Utilities\DependencyObjectExtensions.cs" />
+    <Compile Include="Utilities\GeneralHelper.cs" />
+    <Compile Include="Utilities\Keyboard.cs" />
+    <Compile Include="Utilities\LevenshteinDistance.cs" />
+    <Compile Include="Utilities\Native\CopyDataStruct.cs" />
+    <Compile Include="Utilities\Native\Message.cs" />
+    <Compile Include="Utilities\Native\POINT.cs" />
+    <Compile Include="Utilities\Native\RECT.cs" />
+    <Compile Include="Utilities\Native\WINDOWPLACEMENT.cs" />
+    <Compile Include="Utilities\Native\UnsafeNativeMethods.cs" />
+    <Compile Include="Utilities\PasswordGenerator.cs" />
+    <Compile Include="Music\Proxy\ProxyManager.cs" />
+    <Compile Include="Utilities\RegistryExtensions.cs" />
+    <Compile Include="Utilities\StringExtensions.cs" />
+    <Compile Include="Utilities\TaskExtensions.cs" />
+    <Compile Include="Utilities\UIHelper.cs" />
+    <Compile Include="Utilities\WindowHelper.cs" />
+    <Compile Include="Utilities\WpfScreen.cs" />
+    <Compile Include="ViewModels\MainViewModelCommands.cs" />
+    <Compile Include="ViewModels\QueueManagerViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\TagEditorViewModel.cs" />
+    <Compile Include="Views\DownloadTrackWindow.xaml.cs">
+      <DependentUpon>DownloadTrackWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TagEditorWindow.xaml.cs">
+      <DependentUpon>TagEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Test\PositionTestWindow.xaml.cs">
+      <DependentUpon>PositionTestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Test\TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tools\LanguageCreatorWindow.xaml.cs">
+      <DependentUpon>LanguageCreatorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EqualizerWindow.xaml.cs">
+      <DependentUpon>EqualizerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FolderImportWindow.xaml.cs">
+      <DependentUpon>FolderImportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppMainWindow\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppMainWindow\WindowSkins\IWindowSkin.cs" />
+    <Compile Include="AppMainWindow\WindowSkins\WindowAdvancedView.xaml.cs">
+      <DependentUpon>WindowAdvancedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppMainWindow\WindowSkins\WindowSkinConfiguration.cs" />
+    <Compile Include="AppMainWindow\WindowSkins\WindowSmartView.xaml.cs">
+      <DependentUpon>WindowSmartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProgressWindow.xaml.cs">
+      <DependentUpon>ProgressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QueueManagerWindow.xaml.cs">
+      <DependentUpon>QueueManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportExceptionWindow.xaml.cs">
+      <DependentUpon>ReportExceptionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MetroDialogs\AddCustomStreamView.xaml.cs">
+      <DependentUpon>AddCustomStreamView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\EqualizerView.xaml.cs">
+      <DependentUpon>EqualizerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\KeyboardShortcutsView.xaml.cs">
+      <DependentUpon>KeyboardShortcutsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrackImportWindow.xaml.cs">
+      <DependentUpon>TrackImportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrackInformationWindow.xaml.cs">
+      <DependentUpon>TrackInformationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AppMainWindow\MahAppsExtensions\Dialogs\AdvancedInputDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppMainWindow\MahAppsExtensions\Dialogs\EqualizerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Designer\DesignerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Designer\Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Designer\Pages\LivePreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Designer\Pages\ThemeEditControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Designer\Pages\ThemePackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Designer\Pages\ThemePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Controls\PlayPauseButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Controls\TrackImagePreseter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Controls\VolumeIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MagicArrow\DockManager\DockRangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MagicArrow\MagicArrowWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MagicArrow\StrokeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Notification\Views\NotificationRightBottomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Notification\Views\NotificationTopWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Languages\AnyListen.nl-nl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Languages\AnyListen.fi-fi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Languages\AnyListen.de-de.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Languages\AnyListen.ru-ru.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Languages\AnyListen.zh-cn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\AdvancedTimelineSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\CleanWindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\FavoriteToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\TrackListViewUtils.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\VectorMenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\MetroWindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\RoundButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\TimelineSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\VolumeSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Amber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\BaseDark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\BaseLight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Lime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Indigo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Cyan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Crimson.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Cobalt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Emerald.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Yellow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Violet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Teal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Taupe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Purple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Pink.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Olive.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Mauve.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Magenta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Orange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Red.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Sienna.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Steel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\VectorGraphics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DownloadTrackWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TagEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Test\PositionTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Test\TestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tools\LanguageCreatorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InputDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EqualizerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FolderImportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\Behaviors\ButtonBehavior.cs" />
+    <Compile Include="GUI\Converter\CurrentStateDisplayConverter.cs" />
+    <Compile Include="GUI\Converter\FalseOnEmptyString.cs" />
+    <Compile Include="GUI\Converter\TrueFalseValueConverter.cs" />
+    <Compile Include="Utilities\ImageHelper.cs" />
+    <Compile Include="MagicArrow\MagicArrow.cs" />
+    <Compile Include="MagicArrow\MagicArrowWindow.xaml.cs">
+      <DependentUpon>MagicArrowWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\HookManager\HookManager.Callbacks.cs" />
+    <Compile Include="Utilities\HookManager\HookManager.cs" />
+    <Compile Include="Utilities\HookManager\HookManager.Structures.cs" />
+    <Compile Include="Utilities\HookManager\HookManager.Windows.cs" />
+    <Compile Include="Utilities\HookManager\MouseEventExtArgs.cs" />
+    <Compile Include="Music\AudioEngine\CSCoreEngine.cs" />
+    <Compile Include="Music\CustomEventArgs\TrackChangedEventArgs.cs" />
+    <Compile Include="Music\MusicManager.cs" />
+    <Compile Include="Music\Playlist\NormalPlaylist.cs" />
+    <Compile Include="Music\Visualization\SampleAnalyser.cs" />
+    <Compile Include="Settings\HurricaneSettings.cs" />
+    <Compile Include="ViewModelBase\PropertyChangedBase.cs" />
+    <Compile Include="ViewModelBase\RelayCommand.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\InputDialog.xaml.cs">
+      <DependentUpon>InputDialog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AppMainWindow\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppMainWindow\WindowSkins\WindowAdvancedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppMainWindow\WindowSkins\WindowSmartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProgressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QueueManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportExceptionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MetroDialogs\AddCustomStreamView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\EqualizerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\KeyboardShortcutsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrackImportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrackInformationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Page Include="Resources\Languages\AnyListen.en-us.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MediaIcons\ThumbButtons\backward.png" />
+    <Resource Include="Resources\MediaIcons\ThumbButtons\forward.png" />
+    <Resource Include="Resources\MediaIcons\ThumbButtons\pause.png" />
+    <Resource Include="Resources\MediaIcons\ThumbButtons\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Languages\Icons\de.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Languages\Icons\us.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GUI\updater.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Languages\Icons\fi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\App\Icon.ico" />
+    <Resource Include="Resources\App\LanguageCreator.png" />
+    <Resource Include="Resources\Languages\Icons\nl.png" />
+    <Resource Include="Resources\App\bottom.png" />
+    <Resource Include="Resources\Languages\Icons\ru.png" />
+    <Resource Include="Resources\Languages\Icons\cn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\small-3367-57fc3d2aa5310.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnyListen.PluginAPI\AnyListen.PluginAPI.csproj">
+      <Project>{6680c804-3260-450f-8d2b-42484bc39ff4}</Project>
+      <Name>AnyListen.PluginAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

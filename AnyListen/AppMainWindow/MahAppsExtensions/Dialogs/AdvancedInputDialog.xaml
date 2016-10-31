@@ -1,0 +1,47 @@
+﻿<dialogs:BaseMetroDialog xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                         xmlns:hurricaneDialogs="clr-namespace:AnyListen.AppMainWindow.MahAppsExtensions.Dialogs"
+                         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                         x:Class=" AnyListen.AppMainWindow.MahAppsExtensions.Dialogs.AdvancedInputDialog"
+                         Loaded="Dialog_Loaded">
+    <Grid Margin="0 10 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"
+                            MinHeight="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                    Margin="0 5 0 0"
+                    FontSize="{StaticResource DialogMessageFontSize}"
+                    Text="{Binding Message, RelativeSource={RelativeSource AncestorType=hurricaneDialogs:AdvancedInputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
+                    TextWrapping="Wrap"
+                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=hurricaneDialogs:AdvancedInputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Grid.Row="1"
+                    Margin="0 5 0 0"
+                    FontSize="{StaticResource DialogMessageFontSize}"
+                    controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                    x:Name="PART_TextBox"
+                    Text="{Binding Input, RelativeSource={RelativeSource AncestorType=hurricaneDialogs:AdvancedInputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
+                    TextWrapping="Wrap"
+                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=hurricaneDialogs:AdvancedInputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}" />
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Height="85">
+            <Button x:Name="PART_AffirmativeButton"
+                    Height="35"
+                    MinWidth="80"
+                    Style="{DynamicResource AccentedDialogSquareButton}"
+                    Content="{Binding AffirmativeButtonText, RelativeSource={RelativeSource AncestorType=hurricaneDialogs:AdvancedInputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
+                    Margin="0 0 5 0" IsEnabled="{Binding ElementName=PART_TextBox,Path=Text,Converter={StaticResource FalseOnEmptyString}}"/>
+            <Button x:Name="PART_NegativeButton"
+                    Height="35"
+                    MinWidth="80"
+                    Content="{Binding NegativeButtonText, RelativeSource={RelativeSource AncestorType=hurricaneDialogs:AdvancedInputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
+                    Margin="5 0 5 0" />
+        </StackPanel>
+    </Grid>
+</dialogs:BaseMetroDialog>

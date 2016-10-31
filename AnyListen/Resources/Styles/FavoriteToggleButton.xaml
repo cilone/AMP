@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="ToggleButton" x:Key="FavoriteToggleButton">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Grid Background="#02FFFFFF">
+                        <Viewbox x:Name="viewbox">
+                            <Path Fill="{TemplateBinding Background}" Data="{StaticResource VectorFavorite}"/>
+                        </Viewbox>
+                        <Viewbox x:Name="viewboxnot">
+                            <Path Fill="{TemplateBinding Foreground}" Data="{StaticResource VectorFavoriteNot}"/>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="viewbox" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="viewboxnot" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="viewbox" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="viewboxnot" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ToggleButton" x:Key="FavoriteListToggleButton">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Grid Background="#02FFFFFF">
+                        <Viewbox x:Name="viewbox">
+                            <Path Fill="#FF990000" Data="{StaticResource VectorFavorite}"/>
+                        </Viewbox>
+                        <Viewbox x:Name="viewboxnot">
+                            <Path Fill="DarkGray" Data="{StaticResource VectorFavoriteNot}"/>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="viewbox" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="viewboxnot" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="viewbox" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="viewboxnot" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

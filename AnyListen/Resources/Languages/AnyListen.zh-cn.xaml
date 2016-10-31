@@ -1,0 +1,387 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="Lossless">无损</system:String>
+    <system:String x:Key="LosslessPerfer">无损偏好</system:String>
+    <system:String x:Key="Authorization">认证</system:String>
+    <system:String x:Key="SecretKey">用户密钥</system:String>
+    <system:String x:Key="MagicArrow">魔法箭头</system:String>
+    <system:String x:Key="TrackInfo">歌曲信息</system:String>
+
+    <system:String x:Key="DateFormat">yyyy.MM.dd hh:mm tt</system:String>
+    <system:String x:Key="Search">Search...</system:String>
+    <system:String x:Key="PreviousTrack">上一首</system:String>
+    <system:String x:Key="NextTrack">下一首</system:String>
+    <system:String x:Key="NewPlaylist">新建</system:String>
+    <system:String x:Key="AddFiles">添加歌曲</system:String>
+    <system:String x:Key="AddDirectories">添加歌曲文件夹</system:String>
+    <system:String x:Key="NameOfPlaylist">播放列表:</system:String>
+    <system:String x:Key="Create">创建</system:String>
+    <system:String x:Key="Cancel">取消</system:String>
+    <system:String x:Key="FilesGetImported">正在导入 ({0} of {1})</system:String>
+    <system:String x:Key="Reset">重置</system:String>
+    <system:String x:Key="AddTracks">添加本地歌曲</system:String>
+    <system:String x:Key="Play">播放</system:String>
+    <system:String x:Key="Pause">暂停</system:String>
+    <system:String x:Key="FileInfo">文件信息</system:String>
+    <system:String x:Key="FileLocation">打开所在目录</system:String>
+    <system:String x:Key="Remove">删除</system:String>
+    <system:String x:Key="Del">Del</system:String>
+    <system:String x:Key="SelectedFiles">选择文件</system:String>
+    <system:String x:Key="SelectedFolder">选择文件夹</system:String>
+    <system:String x:Key="RemovePlaylist">删除</system:String>
+    <system:String x:Key="RemoveDuplicates">删除重复歌曲</system:String>
+    <system:String x:Key="NoArtist">no artist</system:String>
+    <system:String x:Key="NowPlaying">正在播放</system:String>
+
+    <system:String x:Key="Presets">预设</system:String>
+    <system:String x:Key="Bass">Bass</system:String>
+    <system:String x:Key="BassExtreme">Bass extreme</system:String>
+    <system:String x:Key="BassAndHeights">Bass and heights</system:String>
+    <system:String x:Key="Heights">Heights</system:String>
+    <system:String x:Key="Classic">Classic</system:String>
+    <system:String x:Key="Dance">Dance</system:String>
+    <system:String x:Key="Rock">Rock</system:String>
+    <system:String x:Key="Techno">Techno</system:String>
+    <system:String x:Key="Pop">Pop</system:String>
+    <system:String x:Key="SoftBass">Soft bass</system:String>
+    <system:String x:Key="SoftHeights">Soft heights</system:String>
+
+    <system:String x:Key="RemoveTracks">从列表中删除</system:String>
+    <system:String x:Key="RemoveTracksMessage">确定从播放列表删除{0}首歌曲？</system:String>
+    <system:String x:Key="RemoveTrackMessage">确定从播放列表删除歌曲'{0}'？</system:String>
+    <system:String x:Key="Tracks">歌曲</system:String>
+    <system:String x:Key="Error">错误</system:String>
+    <system:String x:Key="ReallyDeletePlaylist">确定删除播放列表'{0}'？</system:String>
+    <system:String x:Key="CantDeletePlaylist">只有一个播放列表，播放列表删除失败。</system:String>
+    <system:String x:Key="RenamePlaylist">重命名</system:String>
+    <system:String x:Key="Rename">重命名</system:String>
+    <system:String x:Key="RemoveDuplicateTracks">你确定移除全部重复歌曲？</system:String>
+    <system:String x:Key="TracksRemoved">已移除{0}首歌曲</system:String>
+    <system:String x:Key="NoDuplicatesFound">未找到重复歌曲</system:String>
+    <system:String x:Key="SearchingForDuplicates">正在查找重复歌曲...</system:String>
+
+    <system:String x:Key="Settings">设置</system:String>
+    <system:String x:Key="About">关于</system:String>
+    <system:String x:Key="Close">关闭</system:String>
+    <system:String x:Key="Apply">应用</system:String>
+    <system:String x:Key="Playback">播放</system:String>
+    <system:String x:Key="Device">设备</system:String>
+    <system:String x:Key="SampleSourceBitrate">采样位深</system:String>
+    <system:String x:Key="Samplerate">采样频率</system:String>
+    <system:String x:Key="ShowMagicArrowBelowCursor">魔法箭头(吸附状态下伸缩箭头)在鼠标正下方显示</system:String>
+    <system:String x:Key="DefaultSamplerate">(从歌曲获取采样率)</system:String>
+    <system:String x:Key="Language">语言</system:String>
+
+    <system:String x:Key="Title">标题</system:String>
+    <system:String x:Key="Artist">艺术家</system:String>
+    <system:String x:Key="Album">专辑</system:String>
+    <system:String x:Key="Genre">风格</system:String>
+    <system:String x:Key="Year">日期</system:String>
+    <system:String x:Key="Format">类型</system:String>
+    <system:String x:Key="Duration">时长</system:String>
+    <system:String x:Key="Quality">品质</system:String>
+    <system:String x:Key="FileSize">大小</system:String>
+    <system:String x:Key="Filename">文件名</system:String>
+    <system:String x:Key="Folder">路径</system:String>
+    <system:String x:Key="Added">添加日期</system:String>
+    <system:String x:Key="Played">最近播放</system:String>
+    <system:String x:Key="Never">从未</system:String>
+
+    <system:String x:Key="AboutCopyright">Copyright © 2013-2016 Shellher. All Rights Reserved.</system:String>
+    <system:String x:Key="AboutThanks1">To all the talented creators of the images and libraries mentioned above.</system:String>
+    <system:String x:Key="AboutThanks2">To all the people who donated and Alkalinee (who developed AnyListen - the original of this soft).</system:String>
+    <system:String x:Key="AboutThanks3">To {0}, {1} and {2} (who also developed CSCore) for supporting me.</system:String>
+    <system:String x:Key="AboutThanks4">To the {0} community for their testing, bug reports and ideas.</system:String>
+    <system:String x:Key="Website">Website</system:String>
+    <system:String x:Key="Licence">Licence</system:String>
+    <system:String x:Key="Libraries">组件</system:String>
+    <system:String x:Key="Images">图片</system:String>
+    <system:String x:Key="Thanks">致谢</system:String>
+
+    <system:String x:Key="Notifications">歌曲信息提示</system:String>
+    <system:String x:Key="Appearance">外观</system:String>
+    <system:String x:Key="Disabled">不显示</system:String>
+    <system:String x:Key="Top">顶部居中</system:String>
+    <system:String x:Key="RightBottom">底部右侧</system:String>
+    <system:String x:Key="TrackInformation">歌曲信息</system:String>
+    <system:String x:Key="DisableNotificationsInGame">全屏状态下关闭提示</system:String>
+
+    <system:String x:Key="ReloadTrackInfo">重新加载歌曲信息</system:String>
+    <system:String x:Key="RemoveMissingTracks">移除缺失的歌曲</system:String>
+    <system:String x:Key="LoadTrackInformation">正在加载 ({0} of {1})</system:String>
+    <system:String x:Key="DeleteAllMissingTracks">确定删除该播放列表中全部缺失的歌曲？</system:String>
+
+    <system:String x:Key="IncludeSubfolder">包含子文件夹</system:String>
+    <system:String x:Key="Add">添加</system:String>
+    <system:String x:Key="Theme">主题</system:String>
+
+    <system:String x:Key="Amber">Amber</system:String>
+    <system:String x:Key="Blue">Blue</system:String>
+    <system:String x:Key="Brown">Brown</system:String>
+    <system:String x:Key="Cobalt">Cobalt</system:String>
+    <system:String x:Key="Crimson">Crimson</system:String>
+    <system:String x:Key="Cyan">Cyan</system:String>
+    <system:String x:Key="Emerald">Emerald</system:String>
+    <system:String x:Key="Green">Green</system:String>
+    <system:String x:Key="Indigo">Indigo</system:String>
+    <system:String x:Key="Lime">Lime</system:String>
+    <system:String x:Key="Magenta">Magenta</system:String>
+    <system:String x:Key="Mauve">Mauve</system:String>
+    <system:String x:Key="Olive">Olive</system:String>
+    <system:String x:Key="Orange">Orange</system:String>
+    <system:String x:Key="Pink">Pink</system:String>
+    <system:String x:Key="Purple">Purple</system:String>
+    <system:String x:Key="Red">Red</system:String>
+    <system:String x:Key="Sienna">Sienna</system:String>
+    <system:String x:Key="Steel">Steel</system:String>
+    <system:String x:Key="Taupe">Taupe</system:String>
+    <system:String x:Key="Teal">Teal</system:String>
+    <system:String x:Key="Violet">Violet</system:String>
+    <system:String x:Key="Yellow">Yellow</system:String>
+
+    <system:String x:Key="UpdateChangelogText">Changes in version {0} (published on {1})</system:String>
+    <system:String x:Key="UpdatesAvailable">程序更新</system:String>
+    <system:String x:Key="CurrentVersion">当前版本:</system:String>
+    <system:String x:Key="NewVersion">最新版本:</system:String>
+    <system:String x:Key="Changelog">更新日志:</system:String>
+    <system:String x:Key="Size">大小:</system:String>
+    <system:String x:Key="Update">更新</system:String>
+    <system:String x:Key="NewUpdateAvailable">有新版本可用!</system:String>
+
+    <system:String x:Key="ExceptionTitle">AnyListen - 程序异常</system:String>
+    <system:String x:Key="ExceptionWindowTitle">Goddamn Sh.... 软件发生了意外需要关闭，为你带来的不便敬请谅解。</system:String>
+    <system:String x:Key="ExceptionText">An error report has been created. The error report will be treated as confidential and is only intended to correct the error.</system:String>
+    <system:String x:Key="ExceptionNote">请尽可能描述软件发生异常时你的操作，这将有助于我们修复相关BUG: (可选的)</system:String>
+    <system:String x:Key="Exception">异常信息</system:String>
+    <system:String x:Key="SendExceptionAndClose">发送错误报告并关闭</system:String>
+
+    <system:String x:Key="Queue">播放队列</system:String>
+    <system:String x:Key="AddToQueue">添加到播放队列</system:String>
+    <system:String x:Key="RemoveFromQueue">从播放队列中移除</system:String>
+    <system:String x:Key="ClearQueue">清空播放队列</system:String>
+    <system:String x:Key="QueueManager">播放队列管理</system:String>
+
+    <system:String x:Key="CtrlIns">Ctrl+Ins</system:String>
+    <system:String x:Key="Ins">Ins</system:String>
+    <system:String x:Key="CtrlQ">Ctrl+Q</system:String>
+    <system:String x:Key="Number">序号</system:String>
+    <system:String x:Key="Playlist">播放列表</system:String>
+    <system:String x:Key="TotalTime">总时长</system:String>
+    <system:String x:Key="RemoveSelectedFiles">从列表中移除</system:String>
+    <system:String x:Key="MoveUp">上移</system:String>
+    <system:String x:Key="MoveDown">下移</system:String>
+
+    <system:String x:Key="TrackName">曲名</system:String>
+    <system:String x:Key="ImportTrack">歌曲导入</system:String>
+    <system:String x:Key="Playlists">播放列表</system:String>
+    <system:String x:Key="RemoveAllTracks">清空列表</system:String>
+    <system:String x:Key="RemoveAllTracksQuestion">确定清空列表'{0}'中的全部歌曲?</system:String>
+    <system:String x:Key="Behaviour">特性</system:String>
+    <system:String x:Key="AdvancedView">Advanced view</system:String>
+    <system:String x:Key="EnableAdvancedView">Enable advanced view</system:String>
+    <system:String x:Key="Test">测试</system:String>
+    <system:String x:Key="ShowTime">显示时间:</system:String>
+    <system:String x:Key="Bitrate">比特率</system:String>
+    <system:String x:Key="Remember">不再提示</system:String>
+    <system:String x:Key="AlsoAfterRestart">Also after restart</system:String>
+    <system:String x:Key="CanBeResetedInSettings">Can be reseted in settings</system:String>
+    <system:String x:Key="TotalReset">Total reset</system:String>
+    <system:String x:Key="PlayWithAnyListen">用 AnyListen 播放</system:String>
+    <system:String x:Key="System">System</system:String>
+    <system:String x:Key="ContextMenuItemForExtensions">Context menu item for extensions</system:String>
+    <system:String x:Key="CoverArt">专辑封面</system:String>
+    <system:String x:Key="LoadAlbumCoverFromInternet">从互联网下载缺失的专辑封面</system:String>
+    <system:String x:Key="CoverQuality">专辑封面质量</system:String>
+    <system:String x:Key="SaveAlbumCoverLocal">将专辑封面保存到本地</system:String>
+    <system:String x:Key="PreferFavoriteTracks">随机播放时提高收藏歌曲的随机概率</system:String>
+
+    <system:String x:Key="Small">小</system:String>
+    <system:String x:Key="Medium">中</system:String>
+    <system:String x:Key="Large">大</system:String>
+    <system:String x:Key="Maximum">原图</system:String>
+
+    <system:String x:Key="File">文件</system:String>
+    <system:String x:Key="Open">打开</system:String>
+    <system:String x:Key="SaveAs">另存为</system:String>
+    <system:String x:Key="Save">保存</system:String>
+    <system:String x:Key="TextFiles">文本文件</system:String>
+    <system:String x:Key="AllFiles">全部文件</system:String>
+    <system:String x:Key="Composers">作曲家</system:String>
+    <system:String x:Key="Artists">艺术家</system:String>
+    <system:String x:Key="AlbumArtists">专辑艺术家</system:String>
+    <system:String x:Key="Copyright">版权</system:String>
+    <system:String x:Key="Comment">注释</system:String>
+    <system:String x:Key="Track">轨道序号</system:String>
+    <system:String x:Key="Disc">光盘序号</system:String>
+
+    <system:String x:Key="General">常规</system:String>
+    <system:String x:Key="AddToSendTo">Add to "Send to"</system:String>
+    <system:String x:Key="ApiIsEnabled">Api is enabled</system:String>
+    <system:String x:Key="Port">端口</system:String>
+    <system:String x:Key="FailedToBindToPort">端口绑定失败</system:String>
+    <system:String x:Key="Activated">已激活</system:String>
+    <system:String x:Key="Deactivated">未激活</system:String>
+
+    <system:String x:Key="ThemeEditor">Theme editor</system:String>
+    <system:String x:Key="Name">Name</system:String>
+
+    <system:String x:Key="Edit">编辑</system:String>
+    <system:String x:Key="SaveError">保存失败，请检查你的输入信息</system:String>
+    <system:String x:Key="SaveTagsError">保存失败，请检查标签 "{0} "的信息是否合法</system:String>
+    <system:String x:Key="TagEditor">编辑歌曲标签</system:String>
+    <system:String x:Key="Change">Change</system:String>
+    <system:String x:Key="Favorites">我的收藏</system:String>
+    <system:String x:Key="TrimTrackname">开启搜索词优化</system:String>
+    <system:String x:Key="ShowArtistAndTitle">在列表中显示艺术家以及标题</system:String>
+    <system:String x:Key="Crossfade">开启音乐淡入淡出</system:String>
+    <system:String x:Key="Seconds">秒</system:String>
+    <system:String x:Key="View">显示</system:String>
+    <system:String x:Key="AppTheme">主题模式</system:String>
+    <system:String x:Key="Latency">延迟</system:String>
+
+    <system:String x:Key="DefaultLatency">100 ms (默认)</system:String>
+    <system:String x:Key="PreferFavoriteDescription">随机模式下被收藏歌曲的概率为普通歌曲的二倍</system:String>
+    <system:String x:Key="AccentColorString">主题色</system:String>
+    <system:String x:Key="TrimTracknameDescription">移除搜索词不必要信息以提高搜索质量</system:String>
+
+    <!-- 0.3.0 -->
+    <system:String x:Key="OpenUrl">浏览歌曲链接</system:String>
+    <system:String x:Key="Download">下载</system:String>
+    <system:String x:Key="Views">访问量</system:String>
+    <system:String x:Key="NothingFound">未找到相关歌曲，请更换关键词重新搜索</system:String>
+    <system:String x:Key="NoTracksFound">空空如也</system:String>
+    <system:String x:Key="AddToPlaylist">添加到播放列表</system:String>
+    <system:String x:Key="Downloads">下载</system:String>
+    <system:String x:Key="Platform">所属平台</system:String>
+    <system:String x:Key="Uploader">上传人</system:String>
+    <system:String x:Key="UpdateYoutubedl">更新</system:String>
+    <system:String x:Key="UpdateYoutubedlMessage">Update youtube-dl to version {0}</system:String>
+    <system:String x:Key="Url">Url</system:String>
+    <system:String x:Key="Downloadable">可否下载</system:String>
+    <system:String x:Key="Yes">Yes</system:String>
+    <system:String x:Key="No">No</system:String>
+    <system:String x:Key="CreateNewPlaylist">创建新播放列表</system:String>
+    <system:String x:Key="AddToExistingPlaylist">添加到已有播放列表</system:String>
+    <system:String x:Key="AddTracksToPlaylist">添加到播放列表 '{0}'</system:String>
+    <system:String x:Key="LoadingTracks">正在加载 {0} ({1} of {2})</system:String>
+    <system:String x:Key="AllowedInputs">输入格式</system:String>
+    <system:String x:Key="Keyword">关键词</system:String>
+    <system:String x:Key="YouTubeVideoLink">精选集链接</system:String>
+    <system:String x:Key="YouTubePlaylistLink">专集链接</system:String>
+    <system:String x:Key="All">全部</system:String>
+    <system:String x:Key="ExceptionAddOnlineTrack">添加歌曲时发生异常.</system:String>
+    <system:String x:Key="ExceptionOpenOnlineTrack">播放歌曲时发生异常.</system:String>
+    <system:String x:Key="ExceptionConvertTrack">下载歌曲时发生异常.</system:String>
+    <system:String x:Key="ConvertToLocalTrack">保存到本地</system:String>
+    <system:String x:Key="Streams">云搜</system:String>
+
+    <!-- 0.3.1 -->
+    <system:String x:Key="UseThinHeaders">标题禁用粗体</system:String>
+    <system:String x:Key="DownloadAllStreams">下载全部歌曲</system:String>
+    <system:String x:Key="SoundCloudLink">歌手热门歌曲</system:String>
+
+    <!-- 0.3.2 -->
+    <system:String x:Key="Background">背景图片</system:String>
+    <system:String x:Key="PictureFiles">图片</system:String>
+    <system:String x:Key="MinimizeToTray">最小化到托盘</system:String>
+    <system:String x:Key="NotifyIfMinimizeToTray">托盘状态下提示歌曲信息</system:String>
+    <system:String x:Key="MinimizeToTrayNotification">AnyListen已最小化至系统托盘，双击图标进行还原</system:String>
+    <system:String x:Key="Tray">系统托盘</system:String>
+
+    <!-- 0.3.3 -->
+    <system:String x:Key="Designer">Designer</system:String>
+    <system:String x:Key="Project">Project</system:String>
+    <system:String x:Key="New">New</system:String>
+    <system:String x:Key="ThemePack">Theme pack</system:String>
+    <system:String x:Key="FromThemePack">[From theme pack]</system:String>
+    <system:String x:Key="BaseLight">浅色</system:String>
+    <system:String x:Key="BaseDark">暗色</system:String>
+    <system:String x:Key="Creator">Creator</system:String>
+    <system:String x:Key="Thumbnail">Thumbnail</system:String>
+    <system:String x:Key="No2">No</system:String>
+    <system:String x:Key="Include">Include</system:String>
+    <system:String x:Key="AudioVisualisation">音频可视化</system:String>
+    <system:String x:Key="Skin">Skin</system:String>
+    <system:String x:Key="Default">Default</system:String>
+    <system:String x:Key="Custom">Custom</system:String>
+    <system:String x:Key="SupportedFiles">Supported Files</system:String>
+    <system:String x:Key="VideoFiles">Video Files</system:String>
+    <system:String x:Key="TabControlTransition">控件动画过渡方向</system:String>
+    <system:String x:Key="Left">左</system:String>
+    <system:String x:Key="Right">右</system:String>
+    <system:String x:Key="Up">上</system:String>
+    <system:String x:Key="Down">下</system:String>
+    <system:String x:Key="Fade">渐隐</system:String>
+    <system:String x:Key="None">无</system:String>
+    <system:String x:Key="Path">Path</system:String>
+    <system:String x:Key="ShowProgressInTaskbar">在状态栏显示播放进度</system:String>
+    <system:String x:Key="NothingToSeeHere">去听首歌吧</system:String>
+    <system:String x:Key="Key">Key</system:String>
+    <system:String x:Key="EnglishTranslation">English translation</system:String>
+    <system:String x:Key="GermanTranslation">German translation</system:String>
+    <system:String x:Key="Translation">Translation</system:String>
+    <system:String x:Key="DocumentSaved">Document saved</system:String>
+    <system:String x:Key="OK">OK</system:String>
+
+    <!-- 0.3.4 -->
+    <system:String x:Key="App">App</system:String>
+    <system:String x:Key="ConnectToApp">Connect to app</system:String>
+    <system:String x:Key="IpAddress">IP-Address</system:String>
+    <system:String x:Key="Password">Password</system:String>
+    <system:String x:Key="ConnectedDevices">Connected devices</system:String>
+    <system:String x:Key="Version">Version</system:String>
+    <system:String x:Key="Model">Model</system:String>
+    <system:String x:Key="KeyboardShortcuts">快捷键</system:String>
+    <system:String x:Key="SpaceKey">Space</system:String>
+    <system:String x:Key="PlayPauseShortcutDescription">播放/暂停</system:String>
+    <system:String x:Key="Ctrl">Ctrl</system:String>
+    <system:String x:Key="EqualizerShortcutDescription">打开/关闭 均衡器</system:String>
+    <system:String x:Key="DockUndockAnyListenDescription">吸附到屏幕左侧/右侧(相反方向解除吸附)</system:String>
+    <system:String x:Key="JumpToDescription">跳转到指定页面</system:String>
+    <system:String x:Key="RemoveTrackPlaylistDescription">从播放列表中移除选中的歌曲</system:String>
+    <system:String x:Key="AddTracksDescription">将选中的歌曲添加到播放列表</system:String>
+    <system:String x:Key="AddFolderDescription">将文件夹下的歌曲有添加到播放列表</system:String>
+    <system:String x:Key="AddTrackToQueueDescription">将选中的歌曲添加到播放队列</system:String>
+    <system:String x:Key="RemoveTrackFromQueueDescription">从播放队列中移除选中的歌曲</system:String>
+    <system:String x:Key="OpenQueueManagerDescription">打开播放队列管理器</system:String>
+    <system:String x:Key="OpenTrackInformationDescription">查看歌曲信息</system:String>
+    <system:String x:Key="OpenTagEditorDescription">编辑歌曲标签</system:String>
+    <system:String x:Key="PlaySelectedTrackDescription">播放选中的歌曲</system:String>
+    <system:String x:Key="OpenTrackSourceDescription">打开歌曲来源(URL或者路径)</system:String>
+    <system:String x:Key="ImportTracks">导入歌曲</system:String>
+    <system:String x:Key="NoSoundOutDeviceFound">没有可用的音频输出设备.</system:String>
+    <system:String x:Key="MoveSaveLocation">移动程序</system:String>
+    <system:String x:Key="ReplaceFilesAtNewSaveLocation">替换新目录中的重复文件？</system:String>
+    <system:String x:Key="MoveSaveLocationSuccessful">移动完成，程序将会重新启动。</system:String>
+    <system:String x:Key="MoveToAppData">移动到AppData</system:String>
+    <system:String x:Key="MoveToAppFolder">移动程序根目录</system:String>
+    <system:String x:Key="SaveLocation">Location</system:String>
+    <system:String x:Key="ConvertTrack">Convert track</system:String>
+    <system:String x:Key="CopyFromOriginal">Copy</system:String>
+
+    <system:String x:Key="Music">音乐</system:String>
+    <system:String x:Key="CheckForAnyListenUpdatesOnStart">软件启动时检查更新</system:String>
+    <system:String x:Key="CheckForYouTubeUpdatesIfNeeded">开启youtube-dl更新</system:String>
+
+    <system:String x:Key="FileAlreadyExists">文件已存在</system:String>
+    <system:String x:Key="DownloadTrack">Download track</system:String>
+    <system:String x:Key="DownloadTracks">Download tracks</system:String>
+    <system:String x:Key="Destination">下载目录</system:String>
+    <system:String x:Key="AddTags">自动完善歌曲标签</system:String>
+    <system:String x:Key="Convert">自动转换</system:String>
+    <system:String x:Key="TrackIsDownloading">已下载："{0}"</system:String>
+
+    <system:String x:Key="AddCustomStream">添加网络连接</system:String>
+    <system:String x:Key="InvalidUrl">无效的链接</system:String>
+    <system:String x:Key="TrackListAnimation">播放列表动画</system:String>
+
+    <system:String x:Key="Bars">柱状</system:String>
+    <system:String x:Key="Squares">格状</system:String>
+    <system:String x:Key="Rectangles">条状</system:String>
+    <system:String x:Key="EmailAddress">Email address</system:String>
+    <system:String x:Key="LogIn">Log In</system:String>
+    <system:String x:Key="AnErrorOccurred">发生了一个错误: {0}</system:String>
+    <system:String x:Key="StreamingServices">Streaming services</system:String>
+</ResourceDictionary>

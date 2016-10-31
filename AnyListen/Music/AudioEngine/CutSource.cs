@@ -1,0 +1,44 @@
+﻿using System;
+using CSCore;
+
+namespace AnyListen.Music.AudioEngine
+{
+    class CutSource : WaveAggregatorBase
+    {
+        public CutSource(IWaveSource source, TimeSpan startPosition, TimeSpan trackLength)
+            : base(source)
+        {
+            StartPosition = startPosition;
+            TrackLength = trackLength;
+        }
+
+        public TimeSpan StartPosition { get; set; }
+        public TimeSpan TrackLength { get; set; }
+
+        public override int Read(byte[] buffer, int offset, int count)
+        {
+            var position = TimeSpan.FromMilliseconds(this.GetMilliseconds(base.Position));
+
+            if (position < StartPosition)
+                Position = 0;
+
+            if (position > StartPosition + TrackLength)
+                return 0;
+
+            return base.Read(buffer, offset, count);
+        }
+
+        public override long Length => this.GetRawElements(TrackLength);
+
+        public override long Position
+        {
+            get { return base.Position - this.GetRawElements(StartPosition); ; }
+            set {
+                var position = value + this.GetRawElements(StartPosition); ;
+                if (value < 0 || position < 0)
+                    throw new ArgumentOutOfRangeException("Invalid Position");
+                base.Position = position;
+            }
+        }
+    }
+}

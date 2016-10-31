@@ -1,0 +1,10 @@
+﻿<controls:MetroWindow x:Class="AnyListen.Views.ProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="ProgressWindow" SizeToContent="Height" Width="300" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" GlowBrush="{DynamicResource AccentColorBrush}" ShowCloseButton="False" ShowInTaskbar="False">
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="Something will be done..." Margin="10,15,15,15" x:Name="InfoTextBlock"/>
+        <controls:MetroProgressBar Margin="0,0,0,10" x:Name="StatusProgressBar" Maximum="1"/>
+    </StackPanel>
+</controls:MetroWindow>

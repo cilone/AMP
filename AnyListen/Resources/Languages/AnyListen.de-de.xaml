@@ -1,0 +1,386 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Lossless">Lossless</system:String>
+    <system:String x:Key="LosslessPerfer">Lossless Perfer</system:String>
+    <system:String x:Key="Authorization">Authorization</system:String>
+    <system:String x:Key="SecretKey">Secret Key</system:String>
+    <system:String x:Key="MagicArrow">MAGIC ARROW</system:String>
+    <system:String x:Key="TrackInfo">Track</system:String>
+    
+    <system:String x:Key="DateFormat">dd.MM.yyyy HH:mm</system:String>
+    <system:String x:Key="Search">Suche...</system:String>
+    <system:String x:Key="PreviousTrack">Vorheriger Track</system:String>
+    <system:String x:Key="NextTrack">Nächster Track</system:String>
+    <system:String x:Key="NewPlaylist">Neue Wiedergabeliste</system:String>
+    <system:String x:Key="AddFiles">Dateien hinzufügen</system:String>
+    <system:String x:Key="AddDirectories">Ordner hinzufügen</system:String>
+    <system:String x:Key="NameOfPlaylist">Name der Wiedergabeliste:</system:String>
+    <system:String x:Key="Create">Erstellen</system:String>
+    <system:String x:Key="Cancel">Abbrechen</system:String>
+    <system:String x:Key="FilesGetImported">Importiere ({0} von {1})</system:String>
+    <system:String x:Key="Reset">Zurücksetzen</system:String>
+    <system:String x:Key="AddTracks">Tracks hinzufügen</system:String>
+    <system:String x:Key="Play">Abspielen</system:String>
+    <system:String x:Key="Pause">Pause</system:String>
+    <system:String x:Key="FileInfo">Datei Informationen</system:String>
+    <system:String x:Key="FileLocation">Dateiort</system:String>
+    <system:String x:Key="Remove">Entfernen</system:String>
+    <system:String x:Key="Del">Entf</system:String>
+    <system:String x:Key="SelectedFiles">Dateien auswählen</system:String>
+    <system:String x:Key="SelectedFolder">Ordner auswählen</system:String>
+    <system:String x:Key="RemovePlaylist">Wiedergabeliste entfernen</system:String>
+    <system:String x:Key="RemoveDuplicates">Doppelte Tracks entfernen</system:String>
+    <system:String x:Key="NoArtist">Kein Künstler</system:String>
+    <system:String x:Key="NowPlaying"> Aktuelle Wiedergabe </system:String>
+
+    <system:String x:Key="Presets">Vorlagen</system:String>
+    <system:String x:Key="Bass">Bass</system:String>
+    <system:String x:Key="BassExtreme">Bass extrem</system:String>
+    <system:String x:Key="BassAndHeights">Bass und Höhen</system:String>
+    <system:String x:Key="Heights">Höhen</system:String>
+    <system:String x:Key="Classic">Klassisch</system:String>
+    <system:String x:Key="Dance">Dance</system:String>
+    <system:String x:Key="Rock">Rock</system:String>
+    <system:String x:Key="Techno">Techno</system:String>
+    <system:String x:Key="Pop">Pop</system:String>
+    <system:String x:Key="SoftBass">Weicher Bass</system:String>
+    <system:String x:Key="SoftHeights">Weiche Höhen</system:String>
+    
+    <system:String x:Key="RemoveTracks">Tracks entfernen</system:String>
+    <system:String x:Key="RemoveTracksMessage">Sind Sie sicher, dass Sie {0} Tracks aus der Wiedergabeliste entfernen möchten?</system:String>
+    <system:String x:Key="RemoveTrackMessage">Sind Sie sicher, dass Sie den Track '{0}' aus der Wiedergabeliste entfernen möchten?</system:String>
+    <system:String x:Key="Tracks">Tracks</system:String>
+    <system:String x:Key="Error">Fehler</system:String>
+    <system:String x:Key="ReallyDeletePlaylist">Sind Sie sicher, dass Sie die Wiedergabeliste '{0}' entfernen wollen?</system:String>
+    <system:String x:Key="CantDeletePlaylist">Die Wiedergabeliste kann nicht entfernt werde, weil sie die einzige ist.</system:String>
+    <system:String x:Key="RenamePlaylist">Wiedergabeliste umbenennen</system:String>
+    <system:String x:Key="Rename">Umbenennen</system:String>
+    <system:String x:Key="RemoveDuplicateTracks">Sind Sie sicher, dass sie alle doppelten Tracks entfernen möchten?</system:String>
+    <system:String x:Key="TracksRemoved">Es wurden erfolgreich {0} Tracks entfernt.</system:String>
+    <system:String x:Key="NoDuplicatesFound">Es wurden keine doppelten Tracks gefunden.</system:String>
+    <system:String x:Key="SearchingForDuplicates">Suche doppelte Tracks...</system:String>
+
+    <system:String x:Key="Settings">Einstellungen</system:String>
+    <system:String x:Key="About">Über</system:String>
+    <system:String x:Key="Close">Schließen</system:String>
+    <system:String x:Key="Apply">Anwenden</system:String>
+    <system:String x:Key="Playback">Wiedergabe</system:String>
+    <system:String x:Key="Device">Gerät</system:String>
+    <system:String x:Key="SampleSourceBitrate">Sample Source Bitrate</system:String>
+    <system:String x:Key="Samplerate">Abtastrate</system:String>
+    <system:String x:Key="ShowMagicArrowBelowCursor">Magic Arrow direkt unter dem Cursor anzeigen</system:String>
+    <system:String x:Key="DefaultSamplerate">(Abtastrate von Track übernehmen)</system:String>
+    <system:String x:Key="Language">Sprache</system:String>
+    
+    <system:String x:Key="Title">Titel</system:String>
+    <system:String x:Key="Artist">Künstler</system:String>
+    <system:String x:Key="Album">Album</system:String>
+    <system:String x:Key="Genre">Genre</system:String>
+    <system:String x:Key="Year">Jahr</system:String>
+    <system:String x:Key="Format">Format</system:String>
+    <system:String x:Key="Duration">Dauer</system:String>
+    <system:String x:Key="Quality">Qualität</system:String>
+    <system:String x:Key="FileSize">Dateigröße</system:String>
+    <system:String x:Key="Filename">Dateiname</system:String>
+    <system:String x:Key="Folder">Ordner</system:String>
+    <system:String x:Key="Added">Hinzugefügt</system:String>
+    <system:String x:Key="Played">Abgespielt</system:String>
+    <system:String x:Key="Never">Nie</system:String>
+
+    <system:String x:Key="AboutCopyright">Copyright © 2014-2015 Alkaline. Alle Rechte vorbehalten.</system:String>
+    <system:String x:Key="AboutThanks1">An alle talentierten Ersteller der Bilder und Bibliotheken, die oben genannt werden.</system:String>
+    <system:String x:Key="AboutThanks2">An ein hübsches Mädchen aus meiner Schulklasse, die mir die Inspiration für den Namen gab (Sie weiß es nicht).</system:String>
+    <system:String x:Key="AboutThanks3">An {0}, {1} und {2} (welcher auch CSCore entwickelt hat) für die hilfreiche Unterstützung.</system:String>
+    <system:String x:Key="AboutThanks4">An die {0} Community für Ihr Testen, Fehler melden und Ihre guten Ideen.</system:String>
+    <system:String x:Key="Website">Website</system:String>
+    <system:String x:Key="Licence">Lizenz</system:String>
+    <system:String x:Key="Libraries">Bibliotheken</system:String>
+    <system:String x:Key="Images">Grafiken</system:String>
+    <system:String x:Key="Thanks">Danke</system:String>
+    
+    <system:String x:Key="Notifications">Benachrichtigungen</system:String>
+    <system:String x:Key="Appearance">Aussehen</system:String>
+    <system:String x:Key="Disabled">Ausgeschaltet</system:String>
+    <system:String x:Key="Top">Oben</system:String>
+    <system:String x:Key="RightBottom">Rechts unten</system:String>
+    <system:String x:Key="TrackInformation">Trackinformationen</system:String>
+    <system:String x:Key="DisableNotificationsInGame">Benachrichtigungen während einer Vollbild-Anwendung deaktivieren</system:String>
+
+    <system:String x:Key="ReloadTrackInfo">Trackinformationen neu laden</system:String>
+    <system:String x:Key="RemoveMissingTracks">Fehlende Tracks entfernen</system:String>
+    <system:String x:Key="LoadTrackInformation">Lade ({0} von {1})</system:String>
+    <system:String x:Key="DeleteAllMissingTracks">Sind Sie sicher, dass sie alle fehlenden Tracks aus der Wiedergabeliste entfernen wollen?</system:String>
+
+    <system:String x:Key="IncludeSubfolder">Unterordner einschließen</system:String>
+    <system:String x:Key="Add">Hinzufügen</system:String>
+    <system:String x:Key="Theme">Design</system:String>
+
+    <system:String x:Key="Amber">Bernstein</system:String>
+    <system:String x:Key="Blue">Blau</system:String>
+    <system:String x:Key="Brown">Braun</system:String>
+    <system:String x:Key="Cobalt">Kobalt</system:String>
+    <system:String x:Key="Crimson">Purpur</system:String>
+    <system:String x:Key="Cyan">Cyan</system:String>
+    <system:String x:Key="Emerald">Smaragd</system:String>
+    <system:String x:Key="Green">Grün</system:String>
+    <system:String x:Key="Indigo">Indigo</system:String>
+    <system:String x:Key="Lime">Kalk</system:String>
+    <system:String x:Key="Magenta">Magenta</system:String>
+    <system:String x:Key="Mauve">Mauve</system:String>
+    <system:String x:Key="Olive">Olive</system:String>
+    <system:String x:Key="Orange">Orange</system:String>
+    <system:String x:Key="Pink">Rosa</system:String>
+    <system:String x:Key="Purple">Lila</system:String>
+    <system:String x:Key="Red">Rot</system:String>
+    <system:String x:Key="Sienna">Siena</system:String>
+    <system:String x:Key="Steel">Stahl</system:String>
+    <system:String x:Key="Taupe">Taupe</system:String>
+    <system:String x:Key="Teal">Teal</system:String>
+    <system:String x:Key="Violet">Violett</system:String>
+    <system:String x:Key="Yellow">Gelb</system:String>
+
+    <system:String x:Key="UpdateChangelogText">Änderungen in der Version {0} (Veröffentlicht am {1})</system:String>
+    <system:String x:Key="UpdatesAvailable">Aktualisierungen verfügbar</system:String>
+    <system:String x:Key="CurrentVersion">Aktuelle Version:</system:String>
+    <system:String x:Key="NewVersion">Neue Version:</system:String>
+    <system:String x:Key="Changelog">Changelog:</system:String>
+    <system:String x:Key="Size">Größe:</system:String>
+    <system:String x:Key="Update">Aktualisieren</system:String>
+    <system:String x:Key="NewUpdateAvailable">Neues Update verfügbar!</system:String>
+    
+    <system:String x:Key="ExceptionTitle">AnyListen - Fehler</system:String>
+    <system:String x:Key="ExceptionWindowTitle">Gottverdammte sche.... Ein Fehler ist aufgetreten und AnyListen musste beendet werden. Wir entschuldigen uns für die Unannehmlichkeiten.</system:String>
+    <system:String x:Key="ExceptionText">Ein Fehlerbericht wurde generiert und steht zum Senden bereit. Der Bericht wird vertraulich behandelt und dient ausschließlich zur Behebung des Fehlers.</system:String>
+    <system:String x:Key="ExceptionNote">Um zu helfen, die Ursache des Fehlers zu diagnostizieren, können Sie hier kurz zusammenfassen, wie es zu dem Fehler kam: (optional)</system:String>
+    <system:String x:Key="Exception">Fehler</system:String>
+    <system:String x:Key="SendExceptionAndClose">Fehler senden und schließen</system:String>
+
+    <system:String x:Key="Queue">Warteschlange</system:String>
+    <system:String x:Key="AddToQueue">Zur Warteschlange hinzufügen</system:String>
+    <system:String x:Key="RemoveFromQueue">Von Warteschlange entfernen</system:String>
+    <system:String x:Key="ClearQueue">Warteschlange leeren</system:String>
+    <system:String x:Key="QueueManager">Warteschlangen Manager</system:String>
+    
+    <system:String x:Key="CtrlIns">Strg+Einfg</system:String>
+    <system:String x:Key="Ins">Einfg</system:String>
+    <system:String x:Key="CtrlQ">Strg+Q</system:String>
+    <system:String x:Key="Number">Nummer</system:String>
+    <system:String x:Key="Playlist">Wiedergabeliste</system:String>
+    <system:String x:Key="TotalTime">Gesamtzeit</system:String>
+    <system:String x:Key="RemoveSelectedFiles">Entferne ausgewählte Dateien</system:String>
+    <system:String x:Key="MoveUp">Nach oben</system:String>
+    <system:String x:Key="MoveDown">Nach unten</system:String>
+
+    <system:String x:Key="TrackName">Trackname</system:String>
+    <system:String x:Key="ImportTrack">Track importieren</system:String>
+    <system:String x:Key="Playlists">Wiedergabelisten</system:String>
+    <system:String x:Key="RemoveAllTracks">Alle Tracks entfernen</system:String>
+    <system:String x:Key="RemoveAllTracksQuestion">Sind Sie sicher, dass Sie alle Tracks aus '{0}' entfernen wollen?</system:String>
+    <system:String x:Key="Behaviour">Verhalten</system:String>
+    <system:String x:Key="AdvancedView">Erweiterte Ansicht</system:String>
+    <system:String x:Key="EnableAdvancedView">Erweiterte Ansicht aktivieren</system:String>
+    <system:String x:Key="Test">Testen</system:String>
+    <system:String x:Key="ShowTime">Anzeigedauer:</system:String>
+    <system:String x:Key="Bitrate">Bitrate</system:String>
+    <system:String x:Key="Remember">Merken</system:String>
+    <system:String x:Key="AlsoAfterRestart">Auch nach Neustart</system:String>
+    <system:String x:Key="CanBeResetedInSettings">Kann in den Einstellungen zurückgesetzt werden</system:String>
+    <system:String x:Key="TotalReset">Alles zurücksetzten</system:String>
+    <system:String x:Key="PlayWithAnyListen">Mit AnyListen abspielen</system:String>
+    <system:String x:Key="System">System</system:String>
+    <system:String x:Key="ContextMenuItemForExtensions">Kontextmenüeintrag für Dateiendungen</system:String>
+    <system:String x:Key="CoverArt">Cover</system:String>
+    <system:String x:Key="LoadAlbumCoverFromInternet">Fehlende Cover aus dem Internet herunterladen</system:String>
+    <system:String x:Key="CoverQuality">Coverqualität</system:String>
+    <system:String x:Key="SaveAlbumCoverLocal">Cover lokal speichern</system:String>
+    <system:String x:Key="PreferFavoriteTracks">Favorisierte Tracks bei zufälliger Wiedergabe bevorzugen</system:String>
+
+    <system:String x:Key="Small">Klein</system:String>
+    <system:String x:Key="Medium">Mittel</system:String>
+    <system:String x:Key="Large">Groß</system:String>
+    <system:String x:Key="Maximum">Maximal</system:String>
+
+    <system:String x:Key="File">Datei</system:String>
+    <system:String x:Key="Open">Öffnen</system:String>
+    <system:String x:Key="SaveAs">Speichern als</system:String>
+    <system:String x:Key="Save">Speichern</system:String>
+    <system:String x:Key="TextFiles">Text Dateien</system:String>
+    <system:String x:Key="AllFiles">Alle Dateien</system:String>
+    <system:String x:Key="Composers">Komponisten</system:String>
+    <system:String x:Key="Artists">Künstler</system:String>
+    <system:String x:Key="AlbumArtists">Verfasser</system:String>
+    <system:String x:Key="Copyright">Copyright</system:String>
+    <system:String x:Key="Comment">Kommentar</system:String>
+    <system:String x:Key="Track">Track</system:String>
+    <system:String x:Key="Disc">Disk</system:String>
+    
+    <system:String x:Key="General">Allgemein</system:String>
+    <system:String x:Key="AddToSendTo">Zu "Senden an" hinzufügen</system:String>
+    <system:String x:Key="ApiIsEnabled">Api aktivieren</system:String>
+    <system:String x:Key="Port">Port</system:String>
+    <system:String x:Key="FailedToBindToPort">Fehler beim Setzen des Ports</system:String>
+    <system:String x:Key="Activated">Aktiviert</system:String>
+    <system:String x:Key="Deactivated">Deaktiviert</system:String>
+    
+    <system:String x:Key="ThemeEditor">Theme Editor</system:String>
+    <system:String x:Key="Name">Name</system:String>
+    
+    <system:String x:Key="Edit">Bearbeiten</system:String>
+    <system:String x:Key="SaveError">Es ist ein Fehler aufgetreten. Bitte überprüfen Sie ihre Eingaben.</system:String>
+    <system:String x:Key="SaveTagsError">Es ist ein Fehler beim Speichern der Tags aufgetreten: "{0}"</system:String>
+    <system:String x:Key="TagEditor">Tag Editor</system:String>
+    <system:String x:Key="Change">Ändern</system:String>
+    <system:String x:Key="Favorites">Favoriten</system:String>
+    <system:String x:Key="TrimTrackname">Suchtext verbessern</system:String>
+    <system:String x:Key="ShowArtistAndTitle">Künstlernamen und Titel in Liste anzeigen</system:String>
+    <system:String x:Key="Crossfade">Crossfade</system:String>
+    <system:String x:Key="Seconds">Sekunden</system:String>
+    <system:String x:Key="View">Anzeige</system:String>
+    <system:String x:Key="AppTheme">Theme</system:String>
+    <system:String x:Key="Latency">Latenz</system:String>
+    
+    <system:String x:Key="DefaultLatency">100 ms (Standard)</system:String>
+    <system:String x:Key="PreferFavoriteDescription">Favorisierte Tracks werden im Gegensatz zu normalen Tracks doppelt so wahrscheinlich bei zufälliger Wiedergabe ausgewählt.</system:String>
+    <system:String x:Key="AccentColorString">Akzentfarbe</system:String>
+    <system:String x:Key="TrimTracknameDescription">Aus dem Titel werden überflüssige Sachen wie das Datum oder die Qualität entfernt, was die Trefferquote erhöhen kann.</system:String>
+
+    <!-- 0.3.0 -->
+    <system:String x:Key="OpenUrl">Url öffnen</system:String>
+    <system:String x:Key="Download">Herunterladen</system:String>
+    <system:String x:Key="Views">Aufrufe</system:String>
+    <system:String x:Key="NothingFound">Es wurden keine Ergebnisse gefunden</system:String>
+    <system:String x:Key="NoTracksFound">Es wurden keine Tracks gefunden</system:String>
+    <system:String x:Key="AddToPlaylist">Zu Wiedergabeliste hinzufügen</system:String>
+    <system:String x:Key="Downloads">Downloads</system:String>
+    <system:String x:Key="Platform">Plattform</system:String>
+    <system:String x:Key="Uploader">Uploader</system:String>
+    <system:String x:Key="UpdateYoutubedl">Update</system:String>
+    <system:String x:Key="UpdateYoutubedlMessage">Aktualisiere youtube-dl zu Version {0}</system:String>
+    <system:String x:Key="Url">Url</system:String>
+    <system:String x:Key="Downloadable">Herunterladbar</system:String>
+    <system:String x:Key="Yes">Ja</system:String>
+    <system:String x:Key="No">Nein</system:String>
+    <system:String x:Key="CreateNewPlaylist">Neue Wiedergabeliste erstellen</system:String>
+    <system:String x:Key="AddToExistingPlaylist">Zu vorhandener Wiedergabeliste hinzufügen</system:String>
+    <system:String x:Key="AddTracksToPlaylist">Tracks werden zur Wiedergabeliste '{0}' hinzugefügt</system:String>
+    <system:String x:Key="LoadingTracks">Lade {0} ({1} von {2})</system:String>
+    <system:String x:Key="AllowedInputs">Zulässige Eingaben</system:String>
+    <system:String x:Key="Keyword">Suchwort</system:String>
+    <system:String x:Key="YouTubeVideoLink">YouTube Video Link</system:String>
+    <system:String x:Key="YouTubePlaylistLink">YouTube Wiedergabeliste Link</system:String>
+    <system:String x:Key="All">Alle</system:String>
+    <system:String x:Key="ExceptionAddOnlineTrack">Ein Fehler ist beim Hinzufügen des Tracks aufgetreten.</system:String>
+    <system:String x:Key="ExceptionOpenOnlineTrack">Ein Fehler ist beim Öffnen des Tracks aufgetreten.</system:String>
+    <system:String x:Key="ExceptionConvertTrack">Es ist ein Fehler beim Downloaden des Tracks aufgetreten.</system:String>
+    <system:String x:Key="ConvertToLocalTrack">Zu lokalem Track konvertieren</system:String>
+    <system:String x:Key="Streams">Streams</system:String>
+    
+    <!-- 0.3.1 -->
+    <system:String x:Key="UseThinHeaders">Dünne Schriftstärke für das Hauptmenü verwenden</system:String>
+    <system:String x:Key="DownloadAllStreams">Alle Streams herunterladen</system:String>
+    <system:String x:Key="SoundCloudLink">SoundCloud Link</system:String>
+    
+    <!-- 0.3.2 -->
+    <system:String x:Key="Background">Hintergrund</system:String>
+    <system:String x:Key="PictureFiles">Alle Bilddateien</system:String>
+    <system:String x:Key="MinimizeToTray">In den Tray minimieren</system:String>
+    <system:String x:Key="NotifyIfMinimizeToTray">Benachrichtigung anzeigen, wenn in den Tray minimiert wird</system:String>
+    <system:String x:Key="MinimizeToTrayNotification">AnyListen wurde in den Tray minimiert und kann durch einen Doppelklick auf das Icon wiederhergestellt werden</system:String>
+    <system:String x:Key="Tray">Tray</system:String>
+
+    <!-- 0.3.3 -->
+    <system:String x:Key="Designer">Designer</system:String>
+    <system:String x:Key="Project">Projekt</system:String>
+    <system:String x:Key="New">Neu</system:String>
+    <system:String x:Key="ThemePack">Themepack</system:String>
+    <system:String x:Key="FromThemePack">[Von Themepack]</system:String>
+    <system:String x:Key="BaseLight">Hell</system:String>
+    <system:String x:Key="BaseDark">Dunkel</system:String>
+    <system:String x:Key="Creator">Ersteller</system:String>
+    <system:String x:Key="Thumbnail">Vorschaubild</system:String>
+    <system:String x:Key="No2">Kein</system:String>
+    <system:String x:Key="Include">Enthalten</system:String>
+    <system:String x:Key="AudioVisualisation">Audiovisualisierung</system:String>
+    <system:String x:Key="Skin">Skin</system:String>
+    <system:String x:Key="Default">Standard</system:String>
+    <system:String x:Key="Custom">Eigene</system:String>
+    <system:String x:Key="SupportedFiles">Erlaubte Dateien</system:String>
+    <system:String x:Key="VideoFiles">Alle Videodateien</system:String>
+    <system:String x:Key="TabControlTransition">Hauptmenü Übergangsanimation</system:String>
+    <system:String x:Key="Left">Links</system:String>
+    <system:String x:Key="Right">Rechts</system:String>
+    <system:String x:Key="Up">Oben</system:String>
+    <system:String x:Key="Down">Unten</system:String>
+    <system:String x:Key="Fade">Überblenden</system:String>
+    <system:String x:Key="None">Keine</system:String>
+    <system:String x:Key="Path">Pfad</system:String>
+    <system:String x:Key="ShowProgressInTaskbar">Fortschritt in Taskbar anzeigen</system:String>
+    <system:String x:Key="NothingToSeeHere">Hier gibts nix zu sehen</system:String>
+    <system:String x:Key="Key">Schlüssel</system:String>
+    <system:String x:Key="EnglishTranslation">Englische Übersetzung</system:String>
+    <system:String x:Key="GermanTranslation">Deutsche Übersetzung</system:String>
+    <system:String x:Key="Translation">Übersetzung</system:String>
+    <system:String x:Key="DocumentSaved">Dokument gespeichert</system:String>
+    <system:String x:Key="OK">OK</system:String>
+
+    <!-- 0.3.4 -->
+    <system:String x:Key="App">App</system:String>
+    <system:String x:Key="ConnectToApp">Mit App verbinden</system:String>
+    <system:String x:Key="IpAddress">IP-Adresse</system:String>
+    <system:String x:Key="Password">Passwort</system:String>
+    <system:String x:Key="ConnectedDevices">Verbundene Geräte</system:String>
+    <system:String x:Key="Version">Version</system:String>
+    <system:String x:Key="Model">Modell</system:String>
+    <system:String x:Key="KeyboardShortcuts">Tastenkombinationen</system:String>
+    <system:String x:Key="SpaceKey">Leerzeichen</system:String>
+    <system:String x:Key="PlayPauseShortcutDescription">Umschalten zwischen Play und Pause</system:String>
+    <system:String x:Key="Ctrl">Strg</system:String>
+    <system:String x:Key="EqualizerShortcutDescription">Öffnet oder schließt den Equalizer</system:String>
+    <system:String x:Key="DockUndockAnyListenDescription">Dockt AnyListen an der Seite an</system:String>
+    <system:String x:Key="JumpToDescription">Wechselt zu der Seite mit der angegebenen Positionsnummer</system:String>
+    <system:String x:Key="RemoveTrackPlaylistDescription">Entfernt den ausgewählten Track oder die ausgewählte Wiedergabeliste</system:String>
+    <system:String x:Key="AddTracksDescription">Track zu der aktuellen Wiedergabeliste hinzufügen</system:String>
+    <system:String x:Key="AddFolderDescription">Ordner zu der aktuellen Wiedergabeliste hinzufügen</system:String>
+    <system:String x:Key="AddTrackToQueueDescription">Ausgewählten Track zu der Warteschlange hinzufügen</system:String>
+    <system:String x:Key="RemoveTrackFromQueueDescription">Ausgewählten Track von der Warteschlange entfernen</system:String>
+    <system:String x:Key="OpenQueueManagerDescription">Warteschlangen Manager öffnen</system:String>
+    <system:String x:Key="OpenTrackInformationDescription">Trackinformationen anzeigen</system:String>
+    <system:String x:Key="OpenTagEditorDescription">Tag Editor öffnen</system:String>
+    <system:String x:Key="PlaySelectedTrackDescription">Ausgewählten Track abspielen</system:String>
+    <system:String x:Key="OpenTrackSourceDescription">Quelle des ausgewählten Tracks (Url oder Pfad) öffnen</system:String>
+    <system:String x:Key="ImportTracks">Importiere Tracks</system:String>
+    <system:String x:Key="NoSoundOutDeviceFound">Es konnte kein Wiedergabegerät gefunden werden.</system:String>
+    <system:String x:Key="MoveSaveLocation">Speicherort verschieben</system:String>
+    <system:String x:Key="ReplaceFilesAtNewSaveLocation">Sollen die bereits vorhandenen Dateien in dem neuen Speicherort ersetzt werden?</system:String>
+    <system:String x:Key="MoveSaveLocationSuccessful">AnyListen wird nun neu gestartet, um die Aktion abzuschließen.</system:String>
+    <system:String x:Key="MoveToAppData">Nach AppData verschieben</system:String>
+    <system:String x:Key="MoveToAppFolder">In den Anwendungsordner verschieben</system:String>
+    <system:String x:Key="SaveLocation">Speicherort</system:String>
+    <system:String x:Key="ConvertTrack">Track konvertieren</system:String>
+    <system:String x:Key="CopyFromOriginal">Übernehmen</system:String>
+
+    <system:String x:Key="Music">Musik</system:String>
+    <system:String x:Key="CheckForAnyListenUpdatesOnStart">Bei jedem Start auf Updates von AnyListen prüfen</system:String>
+    <system:String x:Key="CheckForYouTubeUpdatesIfNeeded">Bei jeder Verwendung von youtube-dl auf Updates prüfen</system:String>
+
+    <system:String x:Key="FileAlreadyExists">Die Datei ist bereits vorhanden</system:String>
+    <system:String x:Key="DownloadTrack">Track herunterladen</system:String>
+    <system:String x:Key="DownloadTracks">Tracks herunterladen</system:String>
+    <system:String x:Key="Destination">Ziel</system:String>
+    <system:String x:Key="AddTags">Tags hinzufügen</system:String>
+    <system:String x:Key="Convert">Konvertieren</system:String>
+    <system:String x:Key="TrackIsDownloading">"{0}" wird heruntergeladen</system:String>
+    
+    <system:String x:Key="AddCustomStream">Eigenen Stream hinzufügen</system:String>
+    <system:String x:Key="InvalidUrl">Ungültige Url</system:String>
+    <system:String x:Key="TrackListAnimation">Trackliste-Animation</system:String>
+
+    <system:String x:Key="Bars">Balken</system:String>
+    <system:String x:Key="Squares">Kästchen</system:String>
+    <system:String x:Key="Rectangles">Rechtecke</system:String>
+    <system:String x:Key="EmailAddress">E-Mail Adresse</system:String>
+    <system:String x:Key="LogIn">Einloggen</system:String>
+    <system:String x:Key="AnErrorOccurred">Ein Fehler ist aufgetreten: {0}</system:String>
+    <system:String x:Key="StreamingServices">Streaming-Dienste</system:String>
+</ResourceDictionary>

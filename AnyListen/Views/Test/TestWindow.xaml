@@ -1,0 +1,8 @@
+﻿<Window x:Class="AnyListen.Views.Test.TestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TestWindow" Height="379" Width="833" Topmost="True">
+    <ListBox x:Name="InfoListBox">
+
+    </ListBox>
+</Window>

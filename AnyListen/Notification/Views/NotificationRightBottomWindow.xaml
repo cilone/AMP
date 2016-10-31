@@ -1,0 +1,97 @@
+﻿<Window x:Class="AnyListen.Notification.Views.NotificationRightBottomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:track="clr-namespace:AnyListen.Music.Track"
+        xmlns:converter="clr-namespace:AnyListen.GUI.Converter"
+        Title="AnyListenNotification" Height="100" Width="480" DataContext="{Binding ElementName=BaseWindow,Path=CurrentTrack}" Topmost="True" AllowsTransparency="True" WindowStyle="None" ShowInTaskbar="False" ShowActivated="False" x:Name="BaseWindow" Opacity="0.95">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard >
+                <Storyboard>
+                    <DoubleAnimation From="0.5" To="0.95" Duration="00:00:00.5" Storyboard.TargetProperty="Opacity"></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Window.Resources>
+        <SolidColorBrush x:Key="TextColor" Color="#FF666666"/>
+        <converter:RoundSizeConverter x:Key="RoundSizeConverter"/>
+    </Window.Resources>
+    <Border BorderThickness="1" BorderBrush="{StaticResource AccentColorBrush}">
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Width="80" Height="80">
+                <Image Source="/Resources/GUI/music.png" RenderOptions.BitmapScalingMode="HighQuality" Width="70" Height="70">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Image}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Image Source="{Binding Image}" Stretch="UniformToFill" Width="80" Height="80" RenderOptions.BitmapScalingMode="HighQuality">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Image}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Grid>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center">
+                <TextBlock Text="{Binding Artist}" FontWeight="Bold" Foreground="{StaticResource DarkColorBrush}"/>
+                <TextBlock Text="{Binding Title}" FontSize="20" Foreground="{StaticResource TextColor}" TextTrimming="CharacterEllipsis"/>
+                <ContentControl Content="{Binding}" VerticalAlignment="Center" Margin="0,4,0,0" HorizontalAlignment="Left">
+                    <ContentControl.Resources>
+                        <DataTemplate DataType="{x:Type track:LocalTrack}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Duration}" FontWeight="Bold"/>
+                                <TextBlock Text=" - "/>
+                                <TextBlock Text="{Binding Extension}"/>
+                                <TextBlock Text=" :: "/>
+                                <TextBlock Text="{Binding kHz}"/>
+                                <TextBlock Text=" kHz :: "/>
+                                <TextBlock Text="{Binding TrackInformation.Length,Converter={StaticResource RoundSizeConverter}}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                        <DataTemplate DataType="{x:Type track:StreamableBase}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Duration}" FontWeight="Bold"/>
+                                <TextBlock Text=" - "/>
+                                <Viewbox Height="16" Width="16">
+                                    <Path Data="{Binding ProviderVector}" Fill="{StaticResource TextColor}"/>
+                                </Viewbox>
+                                <TextBlock Text=" :: "/>
+                                <TextBlock Text="{Binding kHz}"/>
+                                <TextBlock Text=" kHz"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Uploader,Converter={StaticResource FalseOnEmptyString}}" Value="false">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    <TextBlock Text=" :: "/>
+                                    <TextBlock Text="{Binding Uploader}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ContentControl.Resources>
+                </ContentControl>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
