@@ -1,7 +1,0 @@
-D:\Program\YaMusic\Hurricane.git\trunk\AnyListen.PluginAPI\bin\Debug\AnyListen.PluginAPI.dll
-D:\Program\YaMusic\Hurricane.git\trunk\AnyListen.PluginAPI\bin\Debug\AnyListen.PluginAPI.pdb
-D:\Program\YaMusic\Hurricane.git\trunk\AnyListen.PluginAPI\obj\Debug\AnyListen.PluginAPI.csprojResolveAssemblyReference.cache
-D:\Program\YaMusic\Hurricane.git\trunk\AnyListen.PluginAPI\obj\Debug\AnyListen.PluginAPI.Properties.Resources.resources
-D:\Program\YaMusic\Hurricane.git\trunk\AnyListen.PluginAPI\obj\Debug\AnyListen.PluginAPI.csproj.GenerateResource.Cache
-D:\Program\YaMusic\Hurricane.git\trunk\AnyListen.PluginAPI\obj\Debug\AnyListen.PluginAPI.dll
-D:\Program\YaMusic\Hurricane.git\trunk\AnyListen.PluginAPI\obj\Debug\AnyListen.PluginAPI.pdb
