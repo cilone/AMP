@@ -23,6 +23,12 @@ AnyListen is a music player written in C# based on the [CSCore sound library](ht
  - Three ways to load lyric
  
 ##Change Log
+###2016.11.02 V1.0.5
+1. 主要删除了很多未用到的代码以及组件；
+2. 优化了本地搜索部分代码，后台使用了.NET Core，搜索速度提高了一倍；
+3. 调整了软件界面布局，美化了部分页面
+4. 需要清空该版本之前添加的播放列表中的网络歌曲，否则会出现播放失败。
+
 ###2016.10.25 V1.0.4
 1. 多选加入播放列表；
 2. 多选进行下载；
