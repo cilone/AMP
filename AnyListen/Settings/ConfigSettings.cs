@@ -6,7 +6,6 @@ using System.Threading;
 using System.Windows;
 using System.Xml.Serialization;
 using CSCore.SoundOut;
-using AnyListen.AppCommunication;
 using AnyListen.Music.AudioEngine;
 using AnyListen.Music.Download;
 using AnyListen.Notification;
@@ -91,11 +90,6 @@ namespace AnyListen.Settings
         public DownloadManager Downloader { get; set; }
         public DownloadSettings DownloadSettings { get; set; }
 
-        //App
-        public AppCommunicationSettings AppCommunicationSettings { get; set; }
-        [XmlIgnore]
-        public AppCommunicationManager AppCommunicationManager { get; set; }
-
         //Updates
         public bool CheckForAnyListenUpdates { get; set; }
         public bool CheckForYoutubeDlUpdates { get; set; }
@@ -148,8 +142,6 @@ namespace AnyListen.Settings
             Downloader = new DownloadManager();
             TabControlTransition = TransitionType.Left;
             ShowProgressInTaskbar = true;
-            AppCommunicationSettings = new AppCommunicationSettings();
-            AppCommunicationSettings.SetStandard();
             DownloadSettings = new DownloadSettings();
             DownloadSettings.SetDefault();
             CheckForAnyListenUpdates = true;
@@ -162,13 +154,6 @@ namespace AnyListen.Settings
         public ConfigSettings()
         {
             SetStandardValues();
-        }
-
-        public void LoadAppCommunication()
-        {
-            if (AppCommunicationManager == null)
-                AppCommunicationManager = new AppCommunicationManager(AppCommunicationSettings);
-            if (AppCommunicationSettings.IsEnabled) AppCommunicationManager.Start();
         }
 
         private ResourceDictionary _lastLanguage;
@@ -201,7 +186,6 @@ namespace AnyListen.Settings
                 }
             }
             result.LoadLanguage();
-            result.LoadAppCommunication();
             return result;
         }
 

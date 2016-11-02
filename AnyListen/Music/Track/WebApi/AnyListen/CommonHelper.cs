@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -339,6 +340,12 @@ namespace AnyListen.Music.Track.WebApi.AnyListen
         public static string DecodeBase64(Encoding encode, string result)
         {
             return encode.GetString(Convert.FromBase64String(result));
+        }
+
+        public static string GetCpuId()
+        {
+            var cpuArr = CpuId.Invoke(0);
+            return string.Join("-", cpuArr.Select(x => x.ToString("X2", CultureInfo.InvariantCulture)));
         }
     }
 }

@@ -75,18 +75,6 @@
       <HintPath>..\packages\CSCore.1.1.0\lib\net35-client\CSCore.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Exceptionless.Extras, Version=3.0.1319.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Exceptionless.Wpf.3.0.1319\lib\net45\Exceptionless.Extras.dll</HintPath>
-    </Reference>
-    <Reference Include="Exceptionless.Portable, Version=3.0.1319.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Exceptionless.Portable.3.0.1319\lib\portable-net40+sl50+win+wpa81+wp80\Exceptionless.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Exceptionless.Wpf, Version=3.0.1319.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Exceptionless.Wpf.3.0.1319\lib\net45\Exceptionless.Wpf.dll</HintPath>
-    </Reference>
     <Reference Include="GongSolutions.Wpf.DragDrop, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\gong-wpf-dragdrop.1.0.0\lib\net45\GongSolutions.Wpf.DragDrop.dll</HintPath>
       <Private>True</Private>
@@ -95,8 +83,9 @@
       <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net45\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.3.0.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\MahApps.Metro.dll</HintPath>
@@ -151,19 +140,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AppCommunication\AppCommunicationManager.cs" />
-    <Compile Include="AppCommunication\AppCommunicationSettings.cs" />
-    <Compile Include="AppCommunication\Commander.cs" />
-    <Compile Include="AppCommunication\Commands\CommandBase.cs" />
-    <Compile Include="AppCommunication\Commands\FileTransferCommand.cs" />
-    <Compile Include="AppCommunication\Commands\MediaControlCommand.cs" />
-    <Compile Include="AppCommunication\Commands\PlaylistCommand.cs" />
-    <Compile Include="AppCommunication\Commands\Utilities.cs" />
-    <Compile Include="AppCommunication\CommunicationEventArgs\TCPConnectionChangedEventArgs.cs" />
-    <Compile Include="AppCommunication\ConnectionDeviceInfo.cs" />
-    <Compile Include="AppCommunication\StreamProvider.cs" />
-    <Compile Include="AppCommunication\TCPConnection.cs" />
-    <Compile Include="AppCommunication\TCPServer.cs" />
     <Compile Include="AppMainWindow\MahAppsExtensions\Dialogs\AdvancedInputDialog.xaml.cs">
       <DependentUpon>AdvancedInputDialog.xaml</DependentUpon>
     </Compile>
@@ -172,6 +148,7 @@
     </Compile>
     <Compile Include="AppMainWindow\Messages\ProgressDialog.cs" />
     <Compile Include="AppMainWindow\Messages\WindowDialogService.cs" />
+    <Compile Include="AppMainWindow\WindowSkins\ScrollViewerMonitor.cs" />
     <Compile Include="Designer\Data\ThemeData\AppThemeData.cs" />
     <Compile Include="Designer\Data\ThemeData\AccentColorData.cs" />
     <Compile Include="Designer\Data\EditableThemePack.cs" />
@@ -217,6 +194,7 @@
       <DependentUpon>PlayPauseButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Converter\IsMusicApiConverter.cs" />
+    <Compile Include="GUI\Converter\MusicPlatformConverter.cs" />
     <Compile Include="GUI\Extensions\ComboBoxItemTemplateChooser.cs" />
     <Compile Include="GUI\Behaviors\ControlBehavior.cs" />
     <Compile Include="GUI\Converter\CollapsedOnNullValue.cs" />
@@ -234,10 +212,9 @@
     <Compile Include="Music\Download\DownloadSettings.cs" />
     <Compile Include="Music\Download\ffmpeg.cs" />
     <Compile Include="Music\Download\GroovesharkApi.cs" />
-    <Compile Include="Music\Lrc\LrcAnalyze.cs" />
-    <Compile Include="Music\Lrc\LrcLineItem.cs" />
     <Compile Include="Music\Lrc\Lyric.cs" />
     <Compile Include="Music\Lrc\MyLrcItem.cs" />
+    <Compile Include="Music\MusicCover\MusicCoverManager.cs" />
     <Compile Include="Music\Playlist\CueSharp.cs" />
     <Compile Include="Music\Playlist\ImportCueSheet.cs" />
     <Compile Include="Music\Playlist\ImportM3uPlaylist.cs" />
@@ -251,6 +228,7 @@
     <Compile Include="Music\Track\CustomStream.cs" />
     <Compile Include="Music\Track\SongResult.cs" />
     <Compile Include="Music\Track\WebApi\AnyListen\BdMusic.cs" />
+    <Compile Include="Music\Track\WebApi\AnyListen\CpuId.cs" />
     <Compile Include="Music\Track\WebApi\AnyListen\KgMusic.cs" />
     <Compile Include="Music\Track\WebApi\AnyListen\KwMusic.cs" />
     <Compile Include="Music\Track\WebApi\AnyListen\TtMusic.cs" />
@@ -326,11 +304,6 @@
     <Compile Include="Music\CustomEventArgs\PlaybackStateChangedEventArgs.cs" />
     <Compile Include="Music\CustomEventArgs\PositionChangedEventArgs.cs" />
     <Compile Include="Music\CustomEventArgs\TrackImportProgressChanged.cs" />
-    <Compile Include="Music\MusicCover\APIs\Lastfm\artist.cs" />
-    <Compile Include="Music\MusicCover\APIs\Lastfm\LastfmAPI.cs" />
-    <Compile Include="Music\MusicCover\APIs\Lastfm\lfm.cs" />
-    <Compile Include="Music\MusicCover\MusicCoverManager.cs" />
-    <Compile Include="Music\MusicCover\APIs\Lastfm\track.cs" />
     <Compile Include="Music\MusicManagerCommands.cs" />
     <Compile Include="Music\Playlist\PlaylistBase.cs" />
     <Compile Include="Music\QueueManager.cs" />
@@ -920,6 +893,7 @@
       <Name>AnyListen.PluginAPI</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

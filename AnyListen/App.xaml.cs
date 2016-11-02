@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
-using Exceptionless;
 using AnyListen.Notification.WindowMessages;
 using AnyListen.Settings;
 using AnyListen.Settings.RegistryManager;
@@ -181,21 +180,18 @@ namespace AnyListen
         bool _isHandled;
         protected void OnExceptionOccurred(Exception ex)
         {
-            if (!_isHandled)
-            {
-                _isHandled = true;
-                if (MainViewModel.Instance.MusicManager != null && MainViewModel.Instance.MusicManager.CSCoreEngine.IsPlaying)
-                    MainViewModel.Instance.MusicManager.CSCoreEngine.StopPlayback();
-                ExceptionlessClient.Default.Register(false);
-                var window = new ReportExceptionWindow(ex);
-                window.ShowDialog();
-            }
+            if (_isHandled) return;
+            _isHandled = true;
+            if (MainViewModel.Instance.MusicManager != null && MainViewModel.Instance.MusicManager.CSCoreEngine.IsPlaying)
+                MainViewModel.Instance.MusicManager.CSCoreEngine.StopPlayback();
+            var window = new ReportExceptionWindow(ex);
+            window.ShowDialog();
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
-            if (_myMutex != null) _myMutex.Dispose();
+            _myMutex?.Dispose();
         }
     }
 }

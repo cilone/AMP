@@ -2,7 +2,6 @@
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
-using AnyListen.Music.MusicCover.APIs.Lastfm;
 using AnyListen.Music.Track;
 using AnyListen.Settings;
 using AnyListen.Utilities;
@@ -56,7 +55,7 @@ namespace AnyListen.Music.MusicCover
             {
                 if (!di.Exists) di.Create();
             }
-            return await LastfmAPI.GetImage(config.DownloadAlbumCoverQuality, config.SaveCoverLocal, di, track, config.TrimTrackname, useArtist);
+            return null;
         }
     }
 }

@@ -44,8 +44,7 @@ namespace AnyListen.AppMainWindow.Messages
                 prg.TitleChanged = ev => progressWindow.SetTitle(ev);
                 prg.ProgressChanged = ev => progressWindow.SetProgress(ev);
                 prg.CloseRequest = () => { progressWindow.Close(); return null; };
-                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => progressWindow.ShowDialog()));
-
+                await Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => progressWindow.ShowDialog()));
             }
             return prg;
         }

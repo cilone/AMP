@@ -69,9 +69,9 @@ namespace AnyListen.Music.Track.WebApi.AnyListen
         }
 
         public bool IsEnabled => true;
-        async Task<List<WebTrackResultBase>> IMusicApi.Search(string searchText)
+        async Task<List<WebTrackResultBase>> IMusicApi.Search(string searchText, int page, int size)
         {
-            return await MusicService.MusicSearch(Type, "search", searchText, "");
+            return await MusicService.MusicSearch(Type, "search", searchText, "", page, size);
         }
         public FrameworkElement ApiSettings => null;
 

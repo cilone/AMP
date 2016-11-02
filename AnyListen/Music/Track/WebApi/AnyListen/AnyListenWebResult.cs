@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Windows.Media;
-using CSCore.Codecs.FLAC;
 using AnyListen.Music.Download;
 using AnyListen.Settings;
 

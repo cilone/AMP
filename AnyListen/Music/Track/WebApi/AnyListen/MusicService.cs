@@ -17,26 +17,27 @@ namespace AnyListen.Music.Track.WebApi.AnyListen
             {
                 using (var web = new WebClient { Proxy = null, Encoding = Encoding.UTF8 })
                 {
-                    var url = "http://vip.itwusun.com/music/"+subType+"/" + type;
+                    var url = "http://vip.itwusun.com/music/"+subType+"?t=" + type;
                     switch (subType)
                     {
                         case "album":
-                            url +=  "?id=" + id;
+                            url +=  "&id=" + id;
                             break;
                         case "artist":
-                            url += "?id=" + id + "&p=" + page + "&s=" + size;
+                            url += "&id=" + id + "&p=" + page + "&s=" + size;
                             break;
                         case "collect":
-                            url += "?id=" + id + "&p=" + page + "&s=" + size;
+                            url += "&id=" + id + "&p=" + page + "&s=" + size;
                             break;
                         case "song":
-                            url += "?id=" + id;
+                            url += "&id=" + id;
                             break;
                         default:
-                            url += "?k=" + key + "&p=" + page + "&s=" + size;
+                            url += "&k=" + key + "&p=" + page + "&s=" + size;
                             break;
                     }
-                    url += "&sign=" + AnyListenSettings.Instance.Config.PersonalCode;
+                    web.Headers.Add("Token", AnyListenSettings.Instance.Config.PersonalCode);
+                    web.Headers.Add("Sign", CommonHelper.GetCpuId());
                     var results = JsonConvert.DeserializeObject<List<SongResult>>(await web.DownloadStringTaskAsync(url));
                     return results.Select(x => new AnyListenWebResult
                     {

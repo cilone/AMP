@@ -155,7 +155,6 @@ namespace AnyListen.ViewModels
                 MusicManager.Dispose();
             }
             _keyboardListener?.Dispose();
-            AnyListenSettings.Instance.Config.AppCommunicationManager.Stop();
         }
 
         private bool _remember;

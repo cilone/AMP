@@ -585,7 +585,7 @@ namespace AnyListen.Music.AudioEngine
                     }
                     _isfadingout = true;
                     CurrentStateChanged();
-                    await _fader.FadeOut(_soundOut, Volume);
+                    if (_fader != null) await _fader.FadeOut(_soundOut, Volume);
                     _soundOut.Pause();
                     CurrentStateChanged();
                     _isfadingout = false;
@@ -601,7 +601,7 @@ namespace AnyListen.Music.AudioEngine
                         return;
                     }
                     CurrentStateChanged();
-                    await _fader.FadeIn(_soundOut, Volume);
+                    if (_fader != null) await _fader.FadeIn(_soundOut, Volume);
                 }
             }
             catch (ObjectDisposedException)

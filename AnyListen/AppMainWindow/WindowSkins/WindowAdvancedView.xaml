@@ -13,7 +13,6 @@
              xmlns:userControls="clr-namespace:AnyListen.Views.UserControls"
              xmlns:viewmodels="clr-namespace:AnyListen.ViewModels"
              xmlns:web="clr-namespace:AnyListen.Music.Track.WebApi"
-             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              DataContext="{x:Static viewmodels:MainViewModel.Instance}"
              d:DesignHeight="600"
@@ -51,7 +50,7 @@
                        IsHitTestVisible="False"
                        Text="AnyListen" />
         </Grid>
-        <Button Grid.Row="0"
+        <!--<Button Grid.Row="0"
                 Grid.RowSpan="2"
                 Height="30"
                 Margin="10,40,15,10"
@@ -66,7 +65,7 @@
             </Button.Resources>
 
             <TextBlock Foreground="White" Text="{DynamicResource NewUpdateAvailable}" />
-        </Button>
+        </Button>-->
         <TabControl x:Name="MainMenu"  
                     Grid.Row="1"
                     SelectionChanged="MainMenu_OnSelectionChanged"
@@ -162,9 +161,6 @@
                         <MenuItem Background="Transparent"
                                   Command="{Binding MusicManager.Commands.OpenFavorites}"
                                   Header="{DynamicResource Favorites}" />
-                        <MenuItem Background="Transparent"
-                                  Command="{Binding OpenOnlineSection}"
-                                  Header="{DynamicResource Streams}" />
                         <MenuItem Background="Transparent"
                                   Command="{Binding OpenDownloadManager}"
                                   Header="{DynamicResource Downloads}">
@@ -853,6 +849,7 @@
                     </Grid>
                 </Grid>
             </TabItem>
+            
             <TabItem Header="{DynamicResource NowPlaying}" >
                 <Grid>
                     <Grid Margin="100,10,100,0"
@@ -1033,27 +1030,8 @@
                     </TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource Settings}">
-                <TabControl Margin="0,-2,0,0"
-                            Padding="0"
-                            controls:TabControlHelper.Transition="{Binding MySettings.Config.TabControlTransition}">
-                    <TabControl.Resources>
-                        <Style BasedOn="{StaticResource MetroTabItem}" TargetType="TabItem">
-                            <Setter Property="controls:ControlsHelper.HeaderFontSize" Value="14" />
-                        </Style>
-                    </TabControl.Resources>
-                    <TabItem Header="{DynamicResource General}">
-                        <userControls:SettingsView Margin="0,10,0,0" />
-                    </TabItem>
-                    <TabItem Header="{DynamicResource KeyboardShortcuts}">
-                        <userControls:KeyboardShortcutsView Margin="5,10,5,5" Focusable="False" />
-                    </TabItem>
-                    <TabItem Header="{DynamicResource About}">
-                        <userControls:AboutView Margin="5" Focusable="False" />
-                    </TabItem>
-                </TabControl>
-            </TabItem>
-            <TabItem Header="Online" Visibility="Collapsed">
+            
+            <TabItem Header="{DynamicResource Streams}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -1224,6 +1202,7 @@
                                   SelectedItem="{Binding MusicManager.TrackSearcher.SelectedTrack}"
                                   Style="{StaticResource VisualizingListView}"
                                   behaviors:GridViewSort.AutoSort="True"
+                                  
                                   listViewLayoutManager:ListViewLayoutManager.Enabled="True">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="SelectionChanged">
@@ -1276,7 +1255,7 @@
                                                   Command="{Binding RelativeSource={RelativeSource AncestorType=ListView},
                                                                 Path=DataContext.MusicManager.TrackSearcher.CopyUrl}"
                                                   CommandParameter="1"/>
-                                        <MenuItem Background="Transparent" 
+                                        <!--<MenuItem Background="Transparent" 
                                                   Command="{Binding RelativeSource={RelativeSource AncestorType=ListView},
                                                                 Path=DataContext.MusicManager.TrackSearcher.CopyUrl}"
                                                   CommandParameter="2"
@@ -1377,7 +1356,7 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </MenuItem.Style>
-                                        </MenuItem>
+                                        </MenuItem>-->
                                         <MenuItem Background="Transparent"
                                                   Command="{Binding RelativeSource={RelativeSource AncestorType=ListView},
                                                                 Path=DataContext.MusicManager.TrackSearcher.CopyUrl}"
@@ -1519,8 +1498,8 @@
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn 
-                                                    Header="{DynamicResource Album}"
+                                    
+                                    <GridViewColumn Header="{DynamicResource Album}"
                                                     behaviors:GridViewSort.PropertyName="Album"
                                                     listViewLayoutManager:ProportionalColumn.Width="200">
                                         <GridViewColumn.CellTemplate>
@@ -1541,8 +1520,7 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                     
-                                    <GridViewColumn Width="100"
-                                                    Header="{DynamicResource Duration}"
+                                    <GridViewColumn Width="100" Header="{DynamicResource Duration}"
                                                     behaviors:GridViewSort.PropertyName="Duration"
                                                     listViewLayoutManager:FixedColumn.Width="100">
                                         <GridViewColumn.CellTemplate>
@@ -1563,31 +1541,10 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                     
-                                    <!--<GridViewColumn Width="60"
-                                                    Header="{DynamicResource Year}"
-                                                    behaviors:GridViewSort.PropertyName="ReleaseYear"
-                                                    listViewLayoutManager:FixedColumn.Width="60">
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate DataType="{x:Type web:WebTrackResultBase}">
-                                                <TextBlock>
-                                                    <TextBlock.Style>
-                                                        <Style TargetType="TextBlock">
-                                                            <Setter Property="Text" Value="{Binding Year}" />
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding Year}" Value="0">
-                                                                    <Setter Property="Text" Value="-" />
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </TextBlock.Style>
-                                                </TextBlock>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>-->
-                                                        <GridViewColumn Width="80"
+                                    <GridViewColumn Width="60"
                                                     Header="{DynamicResource Quality}"
                                                     behaviors:GridViewSort.PropertyName="BitRate"
-                                                    listViewLayoutManager:FixedColumn.Width="80">
+                                                    listViewLayoutManager:FixedColumn.Width="60">
                                                             <GridViewColumn.CellTemplate>
                                                                 <DataTemplate DataType="{x:Type web:WebTrackResultBase}">
                                                                     <TextBlock>
@@ -1616,6 +1573,28 @@
                     </Grid>
                 </Grid>
             </TabItem>
+            
+            <TabItem Header="{DynamicResource Settings}">
+                <TabControl Margin="0,-2,0,0"
+                            Padding="0"
+                            controls:TabControlHelper.Transition="{Binding MySettings.Config.TabControlTransition}">
+                    <TabControl.Resources>
+                        <Style BasedOn="{StaticResource MetroTabItem}" TargetType="TabItem">
+                            <Setter Property="controls:ControlsHelper.HeaderFontSize" Value="14" />
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem Header="{DynamicResource General}">
+                        <userControls:SettingsView Margin="0,10,0,0" />
+                    </TabItem>
+                    <TabItem Header="{DynamicResource KeyboardShortcuts}">
+                        <userControls:KeyboardShortcutsView Margin="5,10,5,5" Focusable="False" />
+                    </TabItem>
+                    <TabItem Header="{DynamicResource About}">
+                        <userControls:AboutView Margin="5" Focusable="False" />
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            
         </TabControl>
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>

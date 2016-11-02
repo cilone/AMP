@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
-using Exceptionless.Configuration;
 using System.Resources;
 
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
@@ -15,7 +14,6 @@ using System.Resources;
 [assembly: AssemblyCopyright("Copyright © 2013-2016 Shelher")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: Exceptionless("3e5cdb4c97c2440884e4514a02821ddb")]
 
 // Durch Festlegen von ComVisible auf "false" werden die Typen in dieser Assembly unsichtbar 
 // für COM-Komponenten.  Wenn Sie auf einen Typ in dieser Assembly von 

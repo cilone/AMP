@@ -10,7 +10,7 @@ namespace AnyListen.Music.Track.WebApi
         Task<Tuple<bool, List<WebTrackResultBase>, IPlaylistResult>> CheckForSpecialUrl(string url);
         string ServiceName { get; }
         bool IsEnabled { get; }
-        Task<List<WebTrackResultBase>> Search(string searchText);
+        Task<List<WebTrackResultBase>> Search(string searchText,int page,int size);
         FrameworkElement ApiSettings { get; }
     }
 }

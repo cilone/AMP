@@ -22,10 +22,7 @@ namespace AnyListen.Music.Track
 
         public override bool TrackExists => true;
 
-        public async override Task<bool> LoadInformation()
-        {
-            return true;
-        }
+        public async override Task<bool> LoadInformation() => true;
 
         public override void OpenTrackLocation()
         {

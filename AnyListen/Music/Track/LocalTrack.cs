@@ -30,19 +30,17 @@ namespace AnyListen.Music.Track
         {
             _trackinformation = null; //to refresh the fileinfo
             Extension = TrackInformation.Extension.ToUpper().Replace(".", string.Empty);
-
             return await UpdateInformation(TrackInformation);
         }
 
         protected virtual async Task<bool> UpdateInformation(FileInfo filename)
         {
-            return await TryLoadWithTagLibSharp(TrackInformation) || await TryLoadWithCSCore(TrackInformation);
+            return await TryLoadWithTagLibSharp(TrackInformation) || await TryLoadWithCsCore(TrackInformation);
         }
 
         private async Task<bool> TryLoadWithTagLibSharp(FileInfo filename)
         {
             File info = null;
-
             try
             {
                 await Task.Run(() => info = File.Create(filename.FullName));
@@ -52,29 +50,36 @@ namespace AnyListen.Music.Track
                 return false;
             }
 
-            using (info)
+            try
             {
-                Artist = RemoveInvalidXmlChars(!string.IsNullOrWhiteSpace(info.Tag.FirstPerformer) ? info.Tag.FirstPerformer : info.Tag.FirstAlbumArtist);
-                Title = !string.IsNullOrWhiteSpace(info.Tag.Title) ? RemoveInvalidXmlChars(info.Tag.Title) : System.IO.Path.GetFileNameWithoutExtension(filename.FullName);
-                Album = RemoveInvalidXmlChars(info.Tag.Album);
-                Genres = new List<Genre>(info.Tag.Genres.Select(StringToGenre));
+                using (info)
+                {
+                    Artist = RemoveInvalidXmlChars(!string.IsNullOrWhiteSpace(info.Tag.FirstPerformer) ? info.Tag.FirstPerformer : info.Tag.FirstAlbumArtist);
+                    Title = !string.IsNullOrWhiteSpace(info.Tag.Title) ? RemoveInvalidXmlChars(info.Tag.Title) : System.IO.Path.GetFileNameWithoutExtension(filename.FullName);
+                    Album = RemoveInvalidXmlChars(info.Tag.Album);
+                    Genres = new List<Genre>(info.Tag.Genres.Select(StringToGenre));
 
-                if (info.Properties.AudioBitrate > 56000) //No idea what TagLib# is thinking, but sometimes it shows the bitrate * 1000
-                {
-                    kbps = (int)Math.Round(info.Properties.AudioBitrate / (double)1000, 0);
+                    if (info.Properties.AudioBitrate > 56000) //No idea what TagLib# is thinking, but sometimes it shows the bitrate * 1000
+                    {
+                        kbps = (int)Math.Round(info.Properties.AudioBitrate / (double)1000, 0);
+                    }
+                    else
+                    {
+                        kbps = info.Properties.AudioBitrate;
+                    }
+                    kHz = info.Properties.AudioSampleRate / 1000;
+                    Year = info.Tag.Year;
+                    SetDuration(info.Properties.Duration);
                 }
-                else
-                {
-                    kbps = info.Properties.AudioBitrate;
-                }
-                kHz = info.Properties.AudioSampleRate / 1000;
-                Year = info.Tag.Year;
-                SetDuration(info.Properties.Duration);
+                return true;
             }
-            return true;
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        private async Task<bool> TryLoadWithCSCore(FileInfo filename)
+        private async Task<bool> TryLoadWithCsCore(FileInfo filename)
         {
             Title = System.IO.Path.GetFileNameWithoutExtension(filename.FullName);
             Mp3Frame frame = null;
@@ -83,13 +88,13 @@ namespace AnyListen.Music.Track
             {
                 await Task.Run(() =>
                 {
-                    using (FileStream sr = new FileStream(filename.FullName, FileMode.Open, FileAccess.Read))
+                    using (var sr = new FileStream(filename.FullName, FileMode.Open, FileAccess.Read))
                         frame = Mp3Frame.FromStream(sr);
                 });
 
                 if (frame != null) { kbps = (int)Math.Round(frame.BitRate / (double)1000, 0); }
-                TimeSpan duration = TimeSpan.Zero;
-                int samplerate = 0;
+                var duration = TimeSpan.Zero;
+                var samplerate = 0;
 
                 await Task.Run(() =>
                 {
@@ -108,7 +113,6 @@ namespace AnyListen.Music.Track
             {
                 return false;
             }
-
             return true;
         }
 

@@ -2,7 +2,6 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:accentColors="clr-namespace:AnyListen.Settings.Themes.Visual.AccentColors"
-             xmlns:appCommunication="clr-namespace:AnyListen.AppCommunication"
              xmlns:appTheme="clr-namespace:AnyListen.Settings.Themes.Visual.AppThemes"
              xmlns:audioData="clr-namespace:AnyListen.Music.Data"
              xmlns:audioVisualisation="clr-namespace:AnyListen.Settings.Themes.AudioVisualisation"
@@ -11,7 +10,6 @@
              xmlns:converter="clr-namespace:AnyListen.Settings.Converter"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:extensions="clr-namespace:AnyListen.GUI.Extensions"
-             xmlns:listViewLayoutManager="clr-namespace:AnyListen.GUI.Extensions.ListViewLayoutManager"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:AnyListen.ViewModels"
              DataContext="{x:Static vm:SettingsViewModel.Instance}"
@@ -40,9 +38,7 @@
             <ListBoxItem Content="{DynamicResource Playback}" />
             <ListBoxItem Content="{DynamicResource Appearance}" />
             <ListBoxItem Content="{DynamicResource Behaviour}" />
-            <!--<ListBoxItem Content="API" />-->
-            <ListBoxItem Content="{DynamicResource Streams}"/> 
-            <!--<ListBoxItem Content="{DynamicResource Reset}" />-->
+            <ListBoxItem Content="{DynamicResource Streams}"/>
             <ListBoxItem Content="{DynamicResource Language}" />
         </ListBox>
         <TabControl x:Name="TabControl"
@@ -110,9 +106,11 @@
                                             </extensions:ComboBoxItemTemplateChooser.SelectedTemplate>
                                         </ComboBox>
                                         <Button Margin="10,0,0,0"
+                                                Padding="10,0,10,0"
                                                 VerticalAlignment="Center"
                                                 Command="{Binding ApplySoundOut}"
                                                 Content="{DynamicResource Apply}"
+                                                Style="{DynamicResource SquareButtonStyle}"
                                                 IsEnabled="{Binding CanApplySoundOut}" />
                                     </StackPanel>
                                 </StackPanel>
@@ -267,10 +265,14 @@
                             <TextBox IsReadOnly="True" Text="{Binding Config.ApplicationDesign.ApplicationBackground.DisplayText, Mode=OneWay}" />
                             <Button Grid.Column="1"
                                     Margin="10,0,10,0"
+                                    Padding="10,0,10,0"
                                     Command="{Binding SelectBackground}"
-                                    Content=" ... " />
+                                    Style="{DynamicResource SquareButtonStyle}"
+                                    Content=" ... "/>
                             <Button Grid.Column="2"
+                                    Padding="10,0,10,0"
                                     Command="{Binding RemoveBackground}"
+                                    Style="{DynamicResource SquareButtonStyle}"
                                     Content="{DynamicResource Remove}" />
                         </Grid>
                         <TextBlock Margin="0,15,0,0" Text="{DynamicResource AudioVisualisation}" />
@@ -383,6 +385,7 @@
                                 </ComboBox>
                                 <Button Width="70"
                                         Margin="5,0,0,0"
+                                        Style="{DynamicResource SquareButtonStyle}"
                                         Command="{Binding TestNotification}"
                                         Content="{DynamicResource Test}" />
                             </StackPanel>
@@ -475,148 +478,6 @@
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
-            <!--<TabItem Header="API">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <DockPanel>
-                        <TextBlock FontSize="24"
-                                   FontWeight="Light"
-                                   Text="{DynamicResource ConnectToApp}" />
-                        <controls:ToggleSwitchButton HorizontalAlignment="Right" IsChecked="{Binding AppIsEnabled}" />
-                    </DockPanel>
-                    <StackPanel Grid.Row="1"
-                                Margin="0,20,0,0"
-                                IsEnabled="{Binding AppIsEnabled}"
-                                Orientation="Vertical">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid Margin="0,0,10,0" Background="White">
-                                <Grid.Effect>
-                                    <DropShadowEffect BlurRadius="10"
-                                                      ShadowDepth="0"
-                                                      Color="White" />
-                                </Grid.Effect>
-                                <qrCodeNet:QrCodeImgControl Height="60"
-                                                            Margin="5"
-                                                            DarkColor="{StaticResource AccentColor}"
-                                                            IsGrayImage="False"
-                                                            LightColor="White"
-                                                            QuietZoneModule="Zero"
-                                                            Text="{Binding AppConnectionString}">
-                                    <qrCodeNet:QrCodeImgControl.Style>
-                                        <Style TargetType="qrCodeNet:QrCodeImgControl">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding AppIsEnabled}" Value="false">
-                                                    <Setter Property="Opacity" Value=".4" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </qrCodeNet:QrCodeImgControl.Style>
-                                </qrCodeNet:QrCodeImgControl>
-                            </Grid>
-                            <StackPanel x:Name="AppConnectionInformationStackPanel"
-                                        Grid.Column="1"
-                                        Orientation="Vertical">
-                                <Grid Margin="0,10,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="75" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock VerticalAlignment="Center" Text="{DynamicResource IpAddress}" />
-                                        <TextBlock VerticalAlignment="Center" Text=":" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                        <TextBox Width="300"
-                                                 Margin="10,0,0,0"
-                                                 IsReadOnly="True"
-                                                 Text="{Binding LocalIpAddress,
-                                                                Mode=OneWay}" />
-                                        <TextBox Width="75"
-                                                 Margin="5,0,0,0"
-                                                 IsReadOnly="True"
-                                                 Text="{Binding Config.AppCommunicationSettings.Port}" />
-                                    </StackPanel>
-                                </Grid>
-                                <Grid Margin="0,10,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="75" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock VerticalAlignment="Center" Text="{DynamicResource Password}" />
-                                        <TextBlock VerticalAlignment="Center" Text=":" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                        <TextBox Width="380"
-                                                 Margin="10,0,0,0"
-                                                 IsReadOnly="True"
-                                                 Text="{Binding Config.AppCommunicationSettings.Password}" />
-                                    </StackPanel>
-                                </Grid>
-                            </StackPanel>
-                        </Grid>
-                        <TextBlock Margin="0,40,0,0"
-                                   FontSize="24"
-                                   FontWeight="Light"
-                                   Text="{DynamicResource ConnectedDevices}" />
-                        <ListView Margin="0,10,0,0"
-                                  ItemsSource="{Binding Config.AppCommunicationManager.ConnectedClients}"
-                                  listViewLayoutManager:ListViewLayoutManager.Enabled="True">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Header="{DynamicResource Device}" listViewLayoutManager:ProportionalColumn.Width="2">
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate DataType="{x:Type appCommunication:TCPConnection}">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Viewbox Width="32"
-                                                             Height="32"
-                                                             Margin="5">
-                                                        <Path Fill="{Binding ElementName=NameTextBlock, Path=Foreground}">
-                                                            <Path.Style>
-                                                                <Style TargetType="Path">
-                                                                    <Style.Triggers>
-                                                                        <DataTrigger Binding="{Binding DeviceInfo.DeviceType}" Value="Tablet">
-                                                                            <Setter Property="Data" Value="{StaticResource VectorTablet}" />
-                                                                        </DataTrigger>
-                                                                        <DataTrigger Binding="{Binding DeviceInfo.DeviceType}" Value="Smartphone">
-                                                                            <Setter Property="Data" Value="{StaticResource VectorSmartphone}" />
-                                                                        </DataTrigger>
-                                                                    </Style.Triggers>
-                                                                </Style>
-                                                            </Path.Style>
-                                                        </Path>
-                                                    </Viewbox>
-                                                    <TextBlock x:Name="NameTextBlock"
-                                                               Margin="10,0,0,0"
-                                                               VerticalAlignment="Center"
-                                                               Text="{Binding DeviceInfo.Name}" />
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-                                    <GridViewColumn DisplayMemberBinding="{Binding DeviceInfo.System}"
-                                                    Header="{DynamicResource System}"
-                                                    listViewLayoutManager:ProportionalColumn.Width="1" />
-                                    <GridViewColumn DisplayMemberBinding="{Binding DeviceInfo.Version}"
-                                                    Header="{DynamicResource Version}"
-                                                    listViewLayoutManager:ProportionalColumn.Width="1" />
-                                    <GridViewColumn DisplayMemberBinding="{Binding DeviceInfo.DeviceModel}"
-                                                    Header="{DynamicResource Model}"
-                                                    listViewLayoutManager:ProportionalColumn.Width="1" />
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
-                    </StackPanel>
-                </Grid>
-            </TabItem>-->
             <TabItem Header="Streaming Services">
                 <ScrollViewer>
                     <StackPanel Margin="10" Orientation="Vertical">
@@ -672,46 +533,6 @@
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
-            <!--<TabItem Header="Reset">
-                <StackPanel Margin="10" Orientation="Vertical">
-                    <TextBlock Style="{StaticResource TextBlockHeader}" behaviors:TextBlockBehavior.UpperText="{DynamicResource ImportTrack}" />
-                    <Button Width="200"
-                            Margin="0,10,0,0"
-                            HorizontalAlignment="Left"
-                            Command="{Binding ResetTrackImport}"
-                            Content="{DynamicResource Reset}"
-                            IsEnabled="{Binding Config.RememberTrackImportPlaylist}" />
-                    <TextBlock Margin="0,30,0,0"
-                               Style="{StaticResource TextBlockHeader}"
-                               Text="HURRICANE" />
-                    <Button Width="200"
-                            Margin="0,10,0,0"
-                            HorizontalAlignment="Left"
-                            Command="{Binding TotalReset}"
-                            Content="{DynamicResource TotalReset}"
-                            Foreground="#FFCF0606" />
-                    <TextBlock Margin="0,30,0,0"
-                               Style="{StaticResource TextBlockHeader}"
-                               behaviors:TextBlockBehavior.UpperText="{DynamicResource MoveSaveLocation}" />
-                    <Button Width="250"
-                            Margin="0,10,0,0"
-                            HorizontalAlignment="Left"
-                            Command="{Binding SwitchLocation}">
-                        <Button.Style>
-                            <Style BasedOn="{StaticResource MetroButton}" TargetType="Button">
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding SaveSettingsToAppData}" Value="true">
-                                        <Setter Property="Content" Value="{DynamicResource MoveToAppFolder}" />
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding SaveSettingsToAppData}" Value="false">
-                                        <Setter Property="Content" Value="{DynamicResource MoveToAppData}" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                </StackPanel>
-            </TabItem>-->
             <TabItem Header="Language">
                 <ListBox Margin="5"
                          Background="Transparent"

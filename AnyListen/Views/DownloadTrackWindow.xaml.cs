@@ -3,7 +3,6 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using Exceptionless.Validation;
 using AnyListen.Music.Download;
 using AnyListen.Settings;
 using Microsoft.Win32;
@@ -88,16 +87,7 @@ namespace AnyListen.Views
 
         private void SetError(TextBox textBox, string error)
         {
-            var textBoxBindingExpression = textBox.GetBindingExpression(TextBox.TextProperty);
-            if (textBoxBindingExpression == null) return;
-            ValidationError validationError =
-                new ValidationError(new RequiredValidationRule(),
-                    textBoxBindingExpression) {ErrorContent = error};
-
-
-            Validation.MarkInvalid(
-                textBoxBindingExpression,
-                validationError);
+            //var textBoxBindingExpression = textBox.GetBindingExpression(TextBox.TextProperty);
         }
 
         private string _selectedPath;

@@ -39,19 +39,27 @@ namespace AnyListen.Music.Playlist
 
         public async Task AddFiles(EventHandler<TrackImportProgressChangedEventArgs> progresschanged, IEnumerable<string> paths)
         {
-            int index = 0;
-            var count = paths.Count();
+            var index = 0;
+            var filePaths = paths as IList<string> ?? paths.ToList();
+            var count = filePaths.Count();
 
-            foreach (FileInfo fi in paths.Select(path => new FileInfo(path)))
+            foreach (var fi in filePaths.Select(path => new FileInfo(path)))
             {
                 if (fi.Exists)
                 {
-                    if (progresschanged != null) progresschanged(this, new TrackImportProgressChangedEventArgs(index, count, fi.Name));
-                    var t = new LocalTrack() { Path = fi.FullName };
-                    if (!await t.LoadInformation()) continue;
-                    t.TimeAdded = DateTime.Now;
-                    t.IsChecked = false;
-                    AddTrack(t);
+                    try
+                    {
+                        progresschanged?.Invoke(this, new TrackImportProgressChangedEventArgs(index, count, fi.Name));
+                        var t = new LocalTrack { Path = fi.FullName };
+                        if (!await t.LoadInformation()) continue;
+                        t.TimeAdded = DateTime.Now;
+                        t.IsChecked = false;
+                        AddTrack(t);
+                    }
+                    catch (Exception)
+                    {
+                        continue;
+                    }
                 }
                 ++index;
             }
@@ -72,10 +80,15 @@ namespace AnyListen.Music.Playlist
         {
             foreach (var t in Tracks)
             {
-                if (progresschanged != null) progresschanged(this, new TrackImportProgressChangedEventArgs(Tracks.IndexOf(t), Tracks.Count, t.ToString()));
-                if (t.TrackExists)
+                progresschanged?.Invoke(this, new TrackImportProgressChangedEventArgs(Tracks.IndexOf(t), Tracks.Count, t.ToString()));
+                if (!t.TrackExists) continue;
+                try
                 {
                     await t.LoadInformation();
+                }
+                catch (Exception)
+                {
+                    //
                 }
             }
         }
@@ -84,8 +97,7 @@ namespace AnyListen.Music.Playlist
         {
             base.AddTrack(track);
             Tracks.Add(track);
-            if (ShuffleList != null)
-                ShuffleList.Add(track);
+            ShuffleList?.Add(track);
 
             track.IsAdded = true;
             var tmr = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(500) };
@@ -106,13 +118,11 @@ namespace AnyListen.Music.Playlist
             await Task.Delay(500);
             if (!track.TrackExists)
             {
-                for (int i = 0; i < Tracks.Count; i++)
+                for (var i = 0; i < Tracks.Count; i++)
                 {
-                    if (Tracks[i].AuthenticationCode == track.AuthenticationCode)
-                    {
-                        Tracks.RemoveAt(i);
-                        break;
-                    }
+                    if (Tracks[i].AuthenticationCode != track.AuthenticationCode) continue;
+                    Tracks.RemoveAt(i);
+                    break;
                 }
             }
             else { Tracks.Remove(track); }

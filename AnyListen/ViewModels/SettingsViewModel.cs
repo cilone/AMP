@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Net;
-using System.Net.Sockets;
 using System.Reflection;
 using System.Windows;
-using CSCore.SoundOut;
 using AnyListen.Music;
 using AnyListen.Music.Data;
 using AnyListen.Settings;
@@ -15,7 +11,9 @@ using AnyListen.Settings.Themes;
 using AnyListen.Settings.Themes.Background;
 using AnyListen.Settings.Themes.Visual;
 using AnyListen.ViewModelBase;
+using CSCore.SoundOut;
 using Microsoft.Win32;
+
 // ReSharper disable ExplicitCallerInfoArgument
 
 namespace AnyListen.ViewModels
@@ -233,50 +231,6 @@ namespace AnyListen.ViewModels
                 }));
             }
         }
-
-        #endregion
-
-        #region App
-
-        public string LocalIpAddress
-        {
-            get
-            {
-                return Dns.GetHostAddresses(Dns.GetHostName())
-                    .First(a => a.AddressFamily == AddressFamily.InterNetwork).ToString();
-            }
-        }
-
-        public string AppConnectionString =>
-            $"{LocalIpAddress};{Config.AppCommunicationSettings.Port};{Config.AppCommunicationSettings.Password}";
-
-        public bool AppIsEnabled
-        {
-            get { return Config.AppCommunicationSettings.IsEnabled; }
-            set
-            {
-                if (value == Config.AppCommunicationSettings.IsEnabled) return;
-                Config.AppCommunicationSettings.IsEnabled = value;
-                if (value)
-                {
-                    try
-                    {
-                        Config.AppCommunicationManager.Start();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        Config.AppCommunicationSettings.IsEnabled = false;
-                    }
-                }
-                else
-                {
-                    Config.AppCommunicationManager.Stop();
-                }
-                OnPropertyChanged();
-            }
-        }
-        
 
         #endregion
 

@@ -5,7 +5,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using AnyListen.Music.Download;
@@ -20,10 +19,10 @@ namespace AnyListen.Music.Track.WebApi
 {
     public class TrackSearcher : PropertyChangedBase
     {
+
         public string SearchText { get; set; }
         public ObservableCollection<WebTrackResultBase> Results { get; set; }
 
-        private readonly AutoResetEvent _cancelWaiter;
         private bool _isSearching; //Difference between _IsRunning and IsSearching: _IsRunning is also true if pictures are downloading
 
         private bool _isLoading;
@@ -96,6 +95,7 @@ namespace AnyListen.Music.Track.WebApi
                     PlaylistResult = null;
                     try
                     {
+                        _currentPageIndex = 0;
                         await Search();
                     }
                     catch (WebException ex)
@@ -136,21 +136,31 @@ namespace AnyListen.Music.Track.WebApi
             SortResults(list);
         }
 
+        private int _currentPageIndex;
         private async Task Search()
         {
-            foreach (var musicApi in MusicApis.Where(x => x.IsEnabled))
+            _currentPageIndex++;
+            if (SearchText.Contains("http"))
             {
-                var result = await musicApi.CheckForSpecialUrl(SearchText);
-                if (result.Item1)
+                if (_currentPageIndex > 1)
                 {
+                    return;
+                }
+                foreach (var musicApi in MusicApis.Where(x => x.IsEnabled))
+                {
+                    var result = await musicApi.CheckForSpecialUrl(SearchText);
+                    if (!result.Item1) continue;
                     SortResults(result.Item2);
                     PlaylistResult = result.Item3;
                     return;
                 }
             }
             var list = new List<WebTrackResultBase>();
-
-            var tasks = MusicApis.Where((t, i) => t.IsEnabled && (_manager.DownloadManager.SelectedService == 0 || _manager.DownloadManager.SelectedService == i + 1)).Select(t => t.Search(SearchText)).ToList();
+            if (_currentPageIndex > 1)
+            {
+                list.AddRange(Results);
+            }
+            var tasks = MusicApis.Where((t, i) => t.IsEnabled && (_manager.DownloadManager.SelectedService == 0 || _manager.DownloadManager.SelectedService == i + 1)).Select(t => t.Search(SearchText,_currentPageIndex,30)).ToList();
             foreach (var task in tasks)
             {
                 var results = await task;
@@ -159,7 +169,6 @@ namespace AnyListen.Music.Track.WebApi
                     list.AddRange(results);
                 }
             }
-
             NothingFound = list.Count == 0;
             SortResults(list);
             var str = _manager.DownloadManager.Searches.FirstOrDefault(x => x.ToUpper() == SearchText.ToUpper());
@@ -326,7 +335,6 @@ namespace AnyListen.Music.Track.WebApi
                 }));
             }
         }
-
 
         private RelayCommand _selectionChangeCommand;
         public RelayCommand SelectionChangeCommand
@@ -513,7 +521,6 @@ namespace AnyListen.Music.Track.WebApi
         public TrackSearcher(MusicManager manager, MainWindow baseWindow)
         {
             Results = new ObservableCollection<WebTrackResultBase>();
-            _cancelWaiter = new AutoResetEvent(false);
             _manager = manager;
             _baseWindow = baseWindow;
             MusicApis = new List<IMusicApi>
@@ -526,6 +533,36 @@ namespace AnyListen.Music.Track.WebApi
                 new KgMusic(),
                 new KwMusic()
             }; 
+        }
+
+        private RelayCommand _fetchMoreDataCommand;
+
+        public RelayCommand FetchMoreDataCommand
+        {
+            get
+            {
+                return _fetchMoreDataCommand ?? (_fetchMoreDataCommand = new RelayCommand(async parameter =>
+                {
+                    if (string.IsNullOrWhiteSpace(SearchText)) return;
+                    IsLoading = true;
+                    if (_isSearching)
+                    {
+                        return;
+                    }
+                    _isSearching = true;
+                    PlaylistResult = null;
+                    try
+                    {
+                        await Search();
+                    }
+                    catch (WebException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    IsLoading = false;
+                    _isSearching = false;
+                }));
+            }
         }
     }
 }

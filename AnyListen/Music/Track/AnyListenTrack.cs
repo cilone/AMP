@@ -26,10 +26,7 @@ namespace AnyListen.Music.Track
                    (SongResult.SongId == ((AnyListenTrack) other).SongResult.SongId);
         }
 
-        public async override Task<bool> LoadInformation()
-        {
-            return LoadInfo();
-        }
+        public async override Task<bool> LoadInformation() => LoadInfo();
 
         public bool LoadInfo()
         {

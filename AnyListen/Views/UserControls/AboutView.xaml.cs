@@ -24,27 +24,11 @@ namespace AnyListen.Views.UserControls
                 },
                 new Component
                 {
-                    Name = "Exceptionless",
-                    Url = "http://exceptionless.com/",
-                    LicenceUrl = "https://github.com/exceptionless/Exceptionless/blob/master/LICENSE.txt",
-                    Description =
-                        "The definition of the word exceptionless is: to be without exception. Exceptionless provides real-time .NET error reporting for this application."
-                },
-                new Component
-                {
                     Name = "Extended WPF Toolkit™",
                     Url = "https://wpftoolkit.codeplex.com/",
                     LicenceUrl = "https://wpftoolkit.codeplex.com/license",
                     Description =
                         "Extended WPF Toolkit™ is the number one collection of WPF controls, components and utilities for creating next generation Windows applications."
-                },
-                new Component
-                {
-                    Name = "FFmpeg",
-                    Url = "http://ffmpeg.org/",
-                    LicenceUrl = "https://www.ffmpeg.org/legal.html",
-                    Description =
-                        "FFmpeg is a complete, cross-platform solution to record, convert and stream audio and video."
                 },
                 new Component
                 {
@@ -79,13 +63,6 @@ namespace AnyListen.Views.UserControls
                 },
                 new Component
                 {
-                    Name = "QrCode.Net",
-                    Url = "https://qrcodenet.codeplex.com/",
-                    LicenceUrl = "https://qrcodenet.codeplex.com/license",
-                    Description = "The goal of the project is provding an easy to use, fully managed .Net library for handling QR code according to ISO/IEC 18004."
-                },
-                new Component
-                {
                     Name = "SharpZipLib",
                     Url = "https://icsharpcode.github.io/SharpZipLib/",
                     LicenceUrl = "https://icsharpcode.github.io/SharpZipLib/",
@@ -102,13 +79,6 @@ namespace AnyListen.Views.UserControls
                 },
                 new Component
                 {
-                    Name = "UpdateSystem.Net",
-                    Url = "https://github.com/maximilian-krauss/updateSystem.NET",
-                    LicenceUrl = "https://github.com/maximilian-krauss/updateSystem.NET/blob/master/LICENSE.md",
-                    Description = "UpdateSystem.Net is a free update solution for .net applications"
-                },
-                new Component
-                {
                     Name = "WPF Native Folder Browser",
                     Url = "https://wpffolderbrowser.codeplex.com/",
                     LicenceUrl = "https://wpffolderbrowser.codeplex.com/license",
@@ -122,14 +92,6 @@ namespace AnyListen.Views.UserControls
                     LicenceUrl = "https://wpfsvl.codeplex.com/license",
                     Description =
                         "The WPF Sound Visualization Library is a collection of WPF Controls for graphically displaying data related to sound processing."
-                },
-                new Component
-                {
-                    Name = "youtube-dl",
-                    Url = "https://rg3.github.io/youtube-dl/",
-                    LicenceUrl = "https://github.com/rg3/youtube-dl/blob/master/LICENSE",
-                    Description =
-                        "Small command-line program to download videos from YouTube.com and other video sites"
                 }
             };
 
@@ -196,7 +158,7 @@ namespace AnyListen.Views.UserControls
 
         private void ButtonGitHub_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/Alkalinee/AnyListen");
+            Process.Start("https://github.com/AnyListen/AMP");
         }
 
         private void ButtonVBP_Click(object sender, RoutedEventArgs e)
