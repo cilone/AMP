@@ -116,9 +116,6 @@
     <Reference Include="taglib-sharp">
       <HintPath>..\packages\taglib.2.1.0.0\lib\taglib-sharp.dll</HintPath>
     </Reference>
-    <Reference Include="updateSystemDotNet.Controller">
-      <HintPath>..\Libraries\updateSystemDotNet.Controller.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -329,13 +326,6 @@
       <DependentUpon>NotificationTopWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Notification\WindowMessages\WindowMessanger.cs" />
-    <Compile Include="Music\API\Command.cs" />
-    <Compile Include="Music\API\CommandBase.cs" />
-    <Compile Include="Music\API\Commander.cs" />
-    <Compile Include="Music\API\CommandFunction.cs" />
-    <Compile Include="Music\API\CommandAction.cs" />
-    <Compile Include="Music\API\TcpConnection.cs" />
-    <Compile Include="Music\API\TcpServer.cs" />
     <Compile Include="Settings\ConfigSettings.cs" />
     <Compile Include="Settings\Converter\BitrateToIndexConverter.cs" />
     <Compile Include="Settings\Converter\EnumToBooleanConverter.cs" />

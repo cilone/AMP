@@ -206,7 +206,7 @@ namespace AnyListen.Music.Download
                             {
                                 if (!System.IO.File.Exists(picPath))
                                 {
-                                    new WebClient().DownloadFile(songResult.PicUrl, picPath);
+                                    await new WebClient().DownloadFileTaskAsync(songResult.PicUrl, picPath);
                                 }
                             }
                         }
